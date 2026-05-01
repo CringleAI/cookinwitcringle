@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CringleAI | Chris Cringle Brand Hub</title>
+  <meta name="description" content="CringleAI helps businesses scale with AI automation, software development, digital marketing, cloud solutions, and fitness coaching." />
 
   <style>
     * { box-sizing: border-box; }
@@ -114,7 +115,7 @@
       margin-top: 35px;
     }
 
-    .cta a {
+    .cta a, button {
       display: inline-block;
       background: linear-gradient(135deg, #ff8a00, #f5c45b);
       color: #000;
@@ -123,6 +124,8 @@
       font-weight: bold;
       border-radius: 999px;
       margin: 8px;
+      border: none;
+      cursor: pointer;
       box-shadow: 0 8px 30px rgba(255,174,0,0.28);
     }
 
@@ -130,6 +133,30 @@
       background: transparent;
       color: #f5c45b;
       border: 1px solid #f5c45b;
+    }
+
+    form {
+      max-width: 700px;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,200,90,0.3);
+      background: rgba(255,255,255,0.05);
+      color: white;
+    }
+
+    textarea { min-height: 160px; }
+
+    elevenlabs-convai {
+      width: 100%;
+      min-height: 450px;
+      display: block;
     }
 
     footer {
@@ -140,140 +167,109 @@
     }
   </style>
 </head>
-
 <body>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#mission">Mission</a>
-    <a href="#services">Services</a>
-    <a href="#fitness">Fitness</a>
-    <a href="#ai">AI Assistant</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#mission">Mission</a>
+  <a href="#services">Services</a>
+  <a href="#fitness">Fitness</a>
+  <a href="#ai">AI Assistant</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <header id="home">
-    <div class="hero">
-      <h1>Hello! & Welcome to CringleAI</h1>
-      <p class="tagline">
-        A luxury AI-powered brand hub built for digital products, automation, software,
-        fitness, content creation, and business growth.
-      </p>
-
-      <div class="cta">
-        <a href="#services">Explore Services</a>
-        <a class="secondary" href="#fitness">Chris Cringle Fitness</a>
-      </div>
-    </div>
-  </header>
-
-  <section class="section" id="mission">
-    <div class="feature-box">
-      <h2>My Mission</h2>
-      <p>
-        CringleAI exists to provide top-tier digital products and services that help
-        small business owners, digital creators, and entrepreneurs grow stronger,
-        smarter, and faster using modern technology.
-      </p>
-      <p>
-        My work is currently in the developing stages, but I am releasing new products,
-        services, tools, and resources every day. If you need help with AI, software,
-        web development, social media, cloud networking, storage, cybersecurity,
-        marketing, financial tools, or anything related to digital business growth,
-        CringleAI is being built to serve you.
-      </p>
-    </div>
-  </section>
-
-  <section class="section" id="services">
-    <h2>CringleAI Services</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>🤖 AI Automation</h3>
-        <p>AI agents, voice assistants, workflow automation, smart forms, and business systems.</p>
-      </div>
-
-      <div class="card">
-        <h3>💻 Software & Web Development</h3>
-        <p>Landing pages, web apps, digital tools, AI integrations, and custom software builds.</p>
-      </div>
-
-      <div class="card">
-        <h3>☁️ Cloud & Storage</h3>
-        <p>Cloud networking, file storage systems, hosting support, and scalable digital infrastructure.</p>
-      </div>
-
-      <div class="card">
-        <h3>🔐 Cybersecurity</h3>
-        <p>Security awareness, cloud security support, safer workflows, and digital protection strategies.</p>
-      </div>
-
-      <div class="card">
-        <h3>📲 Social Media & Marketing</h3>
-        <p>Content systems, creator branding, campaign planning, digital ads, and growth strategy.</p>
-      </div>
-
-      <div class="card">
-        <h3>💼 Business & Financial Tools</h3>
-        <p>Templates, forms, digital products, lead funnels, client intake systems, and automation tools.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="fitness">
-    <div class="feature-box">
-      <h2>Chris Cringle Fitness</h2>
-      <p>
-        Chris Cringle Fitness is built for people who want discipline, transformation,
-        accountability, and real lifestyle improvement. Through online training,
-        custom plans, motivation, and digital fitness systems, I help clients take
-        control of their body, mindset, and daily habits.
-      </p>
-
-      <div class="cta">
-        <a href="https://www.jotform.com/form/261066929041053" target="_blank">
-          Apply for Online Training
-        </a>
-        <a class="secondary" href="#contact">Ask a Question</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="ai">
-    <h2>Meet the CringleAI Assistant 🤖🔥</h2>
-    <p>
-      Use the AI assistant to explore services, ask about automation, learn about
-      digital products, or get connected with CringleAI solutions.
+<header id="home">
+  <div class="hero">
+    <h1>Hello! & Welcome to CringleAI</h1>
+    <p class="tagline">
+      A luxury AI-powered ecosystem for automation, digital products, software, fitness, and business growth.
     </p>
-
-    <div class="feature-box">
-      <elevenlabs-convai agent-id="agent_6301kqgs8pxjf19t6affgfcbzwf9"></elevenlabs-convai>
+    <div class="cta">
+      <a href="#services">Explore Services</a>
+      <a class="secondary" href="#fitness">Chris Cringle Fitness</a>
     </div>
-  </section>
+  </div>
+</header>
 
-  <section class="section" id="contact">
-    <div class="feature-box">
-      <h2>Contact Me</h2>
-      <p>
-        Ready to build, automate, launch, or grow? Reach out through Facebook,
-        apply for fitness coaching, or use the AI assistant above to learn more.
-      </p>
+<section class="section" id="mission">
+  <div class="feature-box">
+    <h2>My Mission</h2>
+    <p>
+      CringleAI is an evolving innovation hub, actively releasing new tools, systems, and digital solutions designed to help businesses scale faster in the AI era.
+    </p>
+    <p>
+      Whether you need AI systems, websites, automation, cloud solutions, cybersecurity support, marketing systems, or digital products — CringleAI is built to help accelerate your growth.
+    </p>
+  </div>
+</section>
 
-      <div class="cta">
-        <a href="https://www.facebook.com/61576606115626" target="_blank">Contact on Facebook</a>
-        <a class="secondary" href="https://www.jotform.com/form/261066929041053" target="_blank">
-          Fitness Application
-        </a>
-      </div>
+<section class="section" id="services">
+  <h2>CringleAI Services</h2>
+  <div class="grid">
+    <div class="card"><h3>🤖 AI Automation</h3><p>Voice agents, workflows, business automations.</p></div>
+    <div class="card"><h3>💻 Software Development</h3><p>Landing pages, web apps, custom builds.</p></div>
+    <div class="card"><h3>☁️ Cloud Systems</h3><p>Hosting, storage, infrastructure support.</p></div>
+    <div class="card"><h3>🔐 Cybersecurity</h3><p>Protection strategies and secure systems.</p></div>
+    <div class="card"><h3>📲 Marketing</h3><p>Branding, ads, growth strategy, content systems.</p></div>
+    <div class="card"><h3>💼 Business Tools</h3><p>Funnels, forms, lead systems, digital assets.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Why Work With CringleAI?</h2>
+  <div class="grid">
+    <div class="card"><h3>6000+ Growing Community</h3></div>
+    <div class="card"><h3>AI Solutions Built Daily</h3></div>
+    <div class="card"><h3>Business Automation Expertise</h3></div>
+  </div>
+</section>
+
+<section class="section" id="fitness">
+  <div class="feature-box">
+    <h2>Chris Cringle Fitness</h2>
+    <p>
+      Personalized coaching, accountability, transformation systems, and custom fitness programming.
+    </p>
+    <div class="cta">
+      <a href="https://www.jotform.com/form/261066929041053" target="_blank">Apply for Online Training</a>
+      <a class="secondary" href="#contact">Ask a Question</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    © 2026 CringleAI • Chris Cringle Brand Hub • Empowering Innovation Through AI
-  </footer>
+<section class="section" id="ai">
+  <h2>Meet the CringleAI Assistant 🤖</h2>
+  <p>Ask questions, explore services, and discover AI solutions instantly.</p>
+  <div class="feature-box" style="min-height:500px;">
+    <elevenlabs-convai agent-id="agent_6301kqgs8pxjf19t6affgfcbzwf9"></elevenlabs-convai>
+  </div>
+</section>
 
-  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
+<section class="section" id="contact">
+  <div class="feature-box">
+    <h2>Contact Me Directly</h2>
+    <p>Need help building, automating, scaling, or transforming your business? Send a message directly.</p>
+
+    <form action="https://formsubmit.co/chrispcringle@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="How can CringleAI help you?" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="cta">
+      <a href="https://www.jotform.com/form/261066929041053" target="_blank">Fitness Application</a>
+      <a href="https://calendly.com/YOUR-LINK" target="_blank">Book Consultation</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 CringleAI • Empowering Innovation Through AI<br/><br/>
+  Follow the ecosystem: TikTok | Instagram | LinkedIn | GitHub | Shopify
+</footer>
+
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
 
 </body>
 </html>

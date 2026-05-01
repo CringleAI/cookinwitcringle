@@ -1,106 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CookinWitCringle</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CookinWitCringle | Chris Cringle Brand Hub</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background:
-linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.92)),
-url('38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png') center center / 55% no-repeat fixed,
-#111;
       color: #fff;
       text-align: center;
+      background:
+        radial-gradient(circle at top, rgba(255, 165, 0, 0.18), transparent 35%),
+        linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.96)),
+        url('38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png') center center / 45% no-repeat fixed,
+        #070707;
     }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(10px);
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255, 200, 90, 0.25);
+    }
+
+    nav a {
+      color: #f5c45b;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
     header {
-      padding: 60px 20px;
-      background: #000;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
     }
+
+    .hero {
+      max-width: 950px;
+      background: rgba(0,0,0,0.62);
+      border: 1px solid rgba(255, 200, 90, 0.28);
+      border-radius: 28px;
+      padding: 55px 30px;
+      box-shadow: 0 0 60px rgba(255, 153, 0, 0.12);
+    }
+
     h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      margin: 0;
+      letter-spacing: 1px;
+      color: #f5c45b;
     }
-    p {
-      font-size: 1.2rem;
-      color: #ccc;
+
+    .tagline {
+      font-size: 1.35rem;
+      color: #eee;
+      margin: 18px auto;
+      max-width: 760px;
+      line-height: 1.6;
     }
+
     .cta {
-      margin-top: 30px;
+      margin-top: 35px;
     }
+
     .cta a {
-      background: #ff4d00;
-      color: #fff;
-      padding: 15px 25px;
+      display: inline-block;
+      background: linear-gradient(135deg, #ff8a00, #f5c45b);
+      color: #000;
+      padding: 16px 28px;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 5px;
+      border-radius: 999px;
+      margin: 8px;
+      box-shadow: 0 8px 30px rgba(255, 174, 0, 0.28);
     }
+
+    .cta a.secondary {
+      background: transparent;
+      color: #f5c45b;
+      border: 1px solid #f5c45b;
+    }
+
     .section {
-      padding: 50px 20px;
+      padding: 70px 20px;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .section h2 {
+      color: #f5c45b;
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .section p {
+      color: #d8d8d8;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 850px;
+      margin: 15px auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+      margin-top: 35px;
+    }
+
+    .card {
+      background: rgba(15,15,15,0.86);
+      border: 1px solid rgba(255, 200, 90, 0.2);
+      border-radius: 22px;
+      padding: 28px 22px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.35);
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 200, 90, 0.55);
+    }
+
+    .card h3 {
+      color: #fff;
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .ai-box {
+      background: linear-gradient(135deg, rgba(255,138,0,0.12), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255, 200, 90, 0.35);
+      border-radius: 28px;
+      padding: 45px 25px;
+      margin-top: 30px;
+    }
+
+    footer {
+      padding: 35px 20px;
+      background: #000;
+      color: #aaa;
+      border-top: 1px solid rgba(255, 200, 90, 0.2);
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <h1>CookinWitCringle 🍽️🔥</h1>
-  <p>Bold flavor. Real food. Crafted experiences.</p>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#brand">Brand</a>
+    <a href="#ai">AI Assistant</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <div class="cta">
-    <a href="https://www.facebook.com/61576606115626">Order Now</a>
-  </div>
-</header>
+  <header id="home">
+    <div class="hero">
+      <h1>CookinWitCringle</h1>
+      <p class="tagline">
+        A luxury brand hub blending food, fitness, AI, apps, automation, digital media, and creative innovation.
+      </p>
 
-<div class="section">
-  <h2>What We Offer</h2>
-  <p>Fresh plates • Meal prep • Catering • Private dining • Custom orders</p>
-</div>
+      <div class="cta">
+        <a href="#ai">Try the AI Assistant</a>
+        <a class="secondary" href="https://www.facebook.com/61576606115626">Visit Facebook</a>
+      </div>
+    </div>
+  </header>
 
-<div class="section">
-  <h2>About</h2>
-  <p>
-    CookinWitCringle is built on passion, quality, and unforgettable flavor.
-    This is more than food — it’s an experience.
-  </p>
-</div>
+  <section class="section" id="brand">
+    <h2>More Than a Brand — It’s an Ecosystem</h2>
+    <p>
+      CookinWitCringle is evolving into a full digital lifestyle brand powered by creativity, technology, food,
+      fitness, and entrepreneurship. This hub connects everything under the Chris Cringle brand.
+    </p>
 
-<div class="section">
-  <h2>Stay Connected</h2>
-  <p>Follow us on Facebook for menu drops, specials, and ordering info.</p>
-</div>
-<section class="section">
-  
+    <div class="grid">
+      <div class="card">
+        <h3>🍽️ Food</h3>
+        <p>Fresh plates, catering, private dining concepts, menu drops, and future restaurant ideas.</p>
+      </div>
 
-  <section class="section" style="background:#1a1a1a; padding:70px 20px;">
-  <h2 style="font-size:2.3rem;">Meet the CookinWitCringle AI Assistant 🤖🔥</h2>
+      <div class="card">
+        <h3>🤖 AI</h3>
+        <p>AI assistants, voice agents, automations, chatbots, business tools, and intelligent workflows.</p>
+      </div>
 
-  <p style="max-width:800px; margin:20px auto; line-height:1.7;">
-    Your AI-powered guide to everything CookinWitCringle and Chris Cringle.
-    Ask about food services, meal prep, catering, AI tools, fitness coaching,
-    digital services, and upcoming projects.
-  </p>
+      <div class="card">
+        <h3>📲 Apps</h3>
+        <p>Digital tools, web apps, automation projects, fitness apps, and custom software experiments.</p>
+      </div>
 
-  <p style="max-width:800px; margin:20px auto; line-height:1.7;">
-    Built to answer questions, guide visitors, and connect you to services faster.
-  </p>
+      <div class="card">
+        <h3>💪 Fitness</h3>
+        <p>Online coaching, discipline, mindset, lifestyle improvement, and personal transformation.</p>
+      </div>
+    </div>
+  </section>
 
-  <h3>What You Can Ask:</h3>
-  <p>
-    🍽️ Food & Catering<br>
-    🤖 AI Services<br>
-    💪 Fitness Coaching<br>
-    📲 Apps & Automation<br>
-    🔥 Brand Updates
-  </p>
+  <section class="section" id="ai">
+    <h2>Meet the CookinWitCringle AI Assistant 🤖🔥</h2>
+    <p>
+      This assistant helps visitors learn about the brand, ask questions, explore services, get updates,
+      and connect with food, fitness, AI, and app-related projects.
+    </p>
 
-  <div style="margin-top:30px;">
-    <elevenlabs-convai agent-id="agent_6301kqgs8pxjf19t6affgfcbzwf9"></elevenlabs-convai>
-  </div>
-</section>
+    <div class="ai-box">
+      <h3>What You Can Ask</h3>
+      <p>
+        🍽️ Food & catering info<br>
+        🤖 AI services and chatbot demos<br>
+        💪 Fitness coaching questions<br>
+        📲 App and automation ideas<br>
+        🔥 Brand updates and future projects
+      </p>
 
-<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
+      <elevenlabs-convai agent-id="agent_6301kqgs8pxjf19t6affgfcbzwf9"></elevenlabs-convai>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <h2>Current Focus Areas</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>AI Automation</h3>
+        <p>Helping businesses and creators explore automation, AI agents, and smarter workflows.</p>
+      </div>
+
+      <div class="card">
+        <h3>Creative Media</h3>
+        <p>Content systems, digital branding, social media strategy, and AI-powered creative tools.</p>
+      </div>
+
+      <div class="card">
+        <h3>Digital Products</h3>
+        <p>Apps, templates, forms, landing pages, courses, and future software tools.</p>
+      </div>
+
+      <div class="card">
+        <h3>Food & Lifestyle</h3>
+        <p>Food content, future menu drops, personal brand storytelling, and lifestyle experiences.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Connect With the Brand</h2>
+    <p>
+      Follow the journey, explore new projects, and connect with CookinWitCringle as the brand grows.
+    </p>
+
+    <div class="cta">
+      <a href="https://www.facebook.com/61576606115626">Facebook Page</a>
+      <a class="secondary" href="#ai">Ask the AI Assistant</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 CookinWitCringle • Chris Cringle Brand Hub
+  </footer>
+
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
+
 </body>
 </html>

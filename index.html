@@ -541,8 +541,8 @@ async function sendCringleMessage() {
   "No response returned.";
 
 
-    addMessage(reply, "ai");
-    saveHistory("assistant", reply);
+    addMessage(aiReply, "ai");
+saveHistory("assistant", aiReply);
 
   } catch (error) {
     addMessage("Error: CringleAI could not connect right now. Please try again.", "ai");

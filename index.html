@@ -534,12 +534,12 @@ async function sendCringleMessage() {
       throw new Error(data.error || "Something went wrong.");
     }
 
-    const reply =
-      data.output_text ||
-      data.reply ||
-      data.output?.[0]?.content?.[0]?.text ||
-      data.error ||
-      "CringleAI responded, but no readable text was returned.";
+    const aiReply =
+  data.output?.[0]?.content?.[0]?.text ||
+  data.output_text ||
+  data.reply ||
+  "No response returned.";
+
 
     addMessage(reply, "ai");
     saveHistory("assistant", reply);

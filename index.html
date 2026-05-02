@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CringleAI | Chris Cringle Brand Hub</title>
-  <meta name="description" content="CringleAI helps businesses scale with AI automation, software development, digital marketing, cloud solutions, and fitness coaching." />
+
+  <title>CringleAI | GPT-Powered Business Agents</title>
+  <meta name="description" content="CringleAI builds premium GPT-powered AI agents for small businesses, creators, automation, cybersecurity, cloud systems, marketing, and digital growth." />
 
   <style>
     * { box-sizing: border-box; }
@@ -15,7 +16,7 @@
       color: #fff;
       text-align: center;
       background:
-        radial-gradient(circle at top, rgba(255,165,0,0.18), transparent 35%),
+        radial-gradient(circle at top, rgba(255,165,0,0.22), transparent 35%),
         linear-gradient(rgba(0,0,0,0.92), rgba(0,0,0,0.98)),
         url('38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png') center center / 42% no-repeat fixed,
         #070707;
@@ -24,8 +25,7 @@
 
     canvas#particles {
       position: fixed;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
       z-index: -1;
@@ -35,8 +35,8 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(0,0,0,0.88);
-      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
       padding: 18px 20px;
       border-bottom: 1px solid rgba(255,200,90,0.25);
     }
@@ -53,57 +53,99 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 80px 20px;
+      padding: 70px 20px;
     }
 
     .hero, .feature-box {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
-      background: rgba(0,0,0,0.72);
-      border: 1px solid rgba(255,200,90,0.3);
-      border-radius: 28px;
+      background: rgba(0,0,0,0.76);
+      border: 1px solid rgba(255,200,90,0.34);
+      border-radius: 30px;
       padding: 55px 30px;
-      box-shadow: 0 0 60px rgba(255,153,0,0.14);
+      box-shadow: 0 0 70px rgba(255,153,0,0.16);
+    }
+
+    .eyebrow {
+      color: #f5c45b;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 18px;
     }
 
     h1 {
-      font-size: clamp(2.5rem, 7vw, 5.4rem);
+      font-size: clamp(2.7rem, 7vw, 5.6rem);
       margin: 0;
       color: #f5c45b;
+      letter-spacing: -2px;
+    }
+
+    .hero-subheadline {
+      max-width: 900px;
+      margin: 25px auto 10px;
+      font-size: 1.28rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.94);
+    }
+
+    .hero-mission {
+      max-width: 900px;
+      margin: 18px auto 30px;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: rgba(245,196,91,0.95);
     }
 
     #clock {
-      font-size: 2rem;
+      font-size: 1.4rem;
       font-weight: bold;
       color: orange;
       letter-spacing: 3px;
-      margin-top: 20px;
+      margin-top: 22px;
       text-shadow: 0 0 10px rgba(255,165,0,0.5);
     }
 
     #typing-text {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: white;
-      margin-top: 20px;
-      min-height: 40px;
-    }
-
-    .terminal {
-      margin-top: 30px;
-      background: #111;
-      border: 1px solid rgba(255,200,90,0.3);
-      border-radius: 15px;
-      padding: 20px;
-      text-align: left;
-      font-family: monospace;
-      color: #0f0;
-      line-height: 1.8;
+      margin-top: 14px;
+      min-height: 36px;
     }
 
     .counter {
-      font-size: 1.2rem;
-      margin-top: 20px;
+      font-size: 1.1rem;
+      margin-top: 18px;
       color: #f5c45b;
+    }
+
+    .terminal {
+      margin: 30px auto;
+      max-width: 760px;
+      background: #111;
+      border: 1px solid rgba(255,200,90,0.3);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: left;
+      font-family: monospace;
+      color: #00ff8a;
+      line-height: 1.8;
+    }
+
+    .cta { margin-top: 28px; }
+
+    .cta a, button, .feature-box a {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff8a00, #f5c45b);
+      color: #000;
+      padding: 16px 28px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 999px;
+      margin: 8px;
+      border: none;
+      cursor: pointer;
     }
 
     .section {
@@ -120,25 +162,83 @@
     }
 
     .card {
-      background: rgba(15,15,15,0.88);
+      background: rgba(15,15,15,0.9);
       border: 1px solid rgba(255,200,90,0.22);
       border-radius: 22px;
       padding: 28px 22px;
+      line-height: 1.6;
     }
 
-    .cta { margin-top: 35px; }
+    .card strong {
+      color: #f5c45b;
+      display: block;
+      margin-bottom: 8px;
+    }
 
-    .cta a, button {
-      display: inline-block;
+    .chat-shell {
+      margin: 35px auto 0;
+      background: rgba(5,5,5,0.94);
+      border: 1px solid rgba(245,196,91,0.38);
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: 0 0 40px rgba(255,165,0,0.16);
+      max-width: 900px;
+    }
+
+    .chat-window {
+      height: 360px;
+      overflow-y: auto;
+      text-align: left;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,200,90,0.18);
+      margin-bottom: 18px;
+    }
+
+    .chat-message {
+      margin: 12px 0;
+      padding: 14px 16px;
+      border-radius: 16px;
+      line-height: 1.5;
+      max-width: 85%;
+    }
+
+    .user-message {
+      margin-left: auto;
       background: linear-gradient(135deg, #ff8a00, #f5c45b);
       color: #000;
-      padding: 16px 28px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 999px;
-      margin: 8px;
-      border: none;
-      cursor: pointer;
+    }
+
+    .ai-message {
+      margin-right: auto;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border: 1px solid rgba(255,200,90,0.18);
+    }
+
+    .chat-controls {
+      display: flex;
+      gap: 12px;
+    }
+
+    .chat-controls input {
+      flex: 1;
+    }
+
+    .chat-status {
+      color: #f5c45b;
+      font-size: 0.95rem;
+      margin-top: 10px;
+    }
+
+    input, textarea {
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,200,90,0.3);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      width: 100%;
     }
 
     form {
@@ -149,155 +249,72 @@
       gap: 15px;
     }
 
-    input, textarea {
-      padding: 15px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,200,90,0.3);
-      background: rgba(255,255,255,0.05);
-      color: white;
-    }
-
     elevenlabs-convai {
       width: 100%;
       min-height: 450px;
       display: block;
     }
-    .chat-shell {
-  margin-top: 35px;
-  background: rgba(5,5,5,0.92);
-  border: 1px solid rgba(245,196,91,0.35);
-  border-radius: 24px;
-  padding: 24px;
-  box-shadow: 0 0 35px rgba(255,165,0,0.14);
-}
 
-.chat-window {
-  height: 360px;
-  overflow-y: auto;
-  text-align: left;
-  padding: 18px;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,200,90,0.18);
-  margin-bottom: 18px;
-}
+    @media (max-width: 700px) {
+      nav a {
+        display: inline-block;
+        margin: 6px;
+      }
 
-.chat-message {
-  margin: 12px 0;
-  padding: 14px 16px;
-  border-radius: 16px;
-  line-height: 1.5;
-  max-width: 85%;
-}
+      .chat-controls {
+        flex-direction: column;
+      }
 
-.user-message {
-  margin-left: auto;
-  background: linear-gradient(135deg, #ff8a00, #f5c45b);
-  color: #000;
-}
+      .chat-message {
+        max-width: 100%;
+      }
 
-.ai-message {
-  margin-right: auto;
-  background: rgba(255,255,255,0.08);
-  color: #fff;
-  border: 1px solid rgba(255,200,90,0.18);
-}
-
-.chat-controls {
-  display: flex;
-  gap: 12px;
-}
-
-.chat-controls input {
-  flex: 1;
-}
-
-.chat-status {
-  color: #f5c45b;
-  font-size: 0.95rem;
-  margin-top: 10px;
-}
-
-@media (max-width: 700px) {
-  .chat-controls {
-    flex-direction: column;
-  }
-
-  .chat-message {
-    max-width: 100%;
-  }
-
-  .chat-window {
-    height: 300px;
-  }
-}
+      .chat-window {
+        height: 300px;
+      }
+    }
   </style>
 </head>
-<body>
 
+<body>
 <canvas id="particles"></canvas>
 
 <nav>
   <a href="#home">Home</a>
   <a href="#services">Services</a>
   <a href="#fitness">Fitness</a>
-  <a href="#ai">AI</a>
+  <a href="#voice">Voice AI</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <header id="home">
   <div class="hero">
-    <h1>Hello! & Welcome to CringleAI</h1>
+    <div class="eyebrow">CringleAI by Chris Cringle</div>
+
+    <h1>Meet CringleAI</h1>
+
+    <p class="hero-subheadline">
+      A premium GPT-powered AI agent built for the next generation of business.
+      CringleAI brings intelligent conversation, automation, strategy, and digital execution into one powerful interface.
+    </p>
+
+    <p class="hero-mission">
+      This is more than a chatbot. This is the future operating layer for small businesses, creators, and entrepreneurs.
+      CringleAI is being developed to help companies answer customers, capture leads, automate workflows, improve marketing,
+      support cybersecurity awareness, and scale with intelligent digital systems.
+    </p>
+
     <div id="clock"></div>
     <div id="typing-text"></div>
+
     <div class="counter">
       AI Requests Processed: <span id="counter">6000</span>
     </div>
 
-    <div class="terminal">
-      > Initializing CringleAI...<br>
-      > Cloud Connected<br>
-      > Voice Agent Online<br>
-      > Security Systems Active<br>
-      > Ready for Business
-    </div>
-
-    <div class="cta">
-      <a href="#services">Explore Services</a>
-      <a href="#fitness">Fitness Coaching</a>
-    </div>
-  </div>
-</header>
-
-<section class="section" id="services">
-  <h2>CringleAI Services</h2>
-  <div class="grid">
-    <div class="card">🤖 AI Automation</div>
-    <div class="card">💻 Software Development</div>
-    <div class="card">☁️ Cloud Systems</div>
-    <div class="card">🔐 Cybersecurity</div>
-    <div class="card">📲 Marketing</div>
-    <div class="card">💼 Business Tools</div>
-  </div>
-</section>
-
-<section class="section" id="fitness">
-  <div class="feature-box">
-    <h2>Chris Cringle Fitness</h2>
-    <p>Apply for coaching and transformation.</p>
-    <a href="https://www.jotform.com/form/261066929041053" target="_blank">Apply Now</a>
-  </div>
-</section>
-
-<section class="section" id="ai">
-  <div class="feature-box">
-    <h2>Meet the CringleAI Assistant</h2>
-    <p>Ask CringleAI about AI automation, cybersecurity, cloud systems, business growth, websites, and digital strategy.</p>
-
-    <div class="chat-shell">
+    <div class="chat-shell" id="ai">
       <div id="chatWindow" class="chat-window">
         <div class="chat-message ai-message">
-          Welcome to CringleAI. How can I help you today?
+          Welcome to CringleAI. Ask me about AI automation, websites, cybersecurity, cloud systems, marketing, or business growth.
         </div>
       </div>
 
@@ -309,21 +326,77 @@
       <div id="chatStatus" class="chat-status"></div>
     </div>
 
-    <br><br>
+    <div class="terminal">
+      &gt; Initializing CringleAI...<br>
+      &gt; GPT-Powered Intelligence Online<br>
+      &gt; Cloudflare API Connected<br>
+      &gt; Business Agent Framework Active<br>
+      &gt; Ready for the Future of Work
+    </div>
 
-    <h3>Voice AI Agent</h3>
+    <div class="cta">
+      <a href="#services">Explore AI Services</a>
+      <a href="#contact">Build My Agent</a>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="services">
+  <div class="feature-box">
+    <h2>AI Agents for the Future of Small Business</h2>
+    <p>
+      CringleAI is designed to help small businesses move faster, look more professional, and operate with intelligent automation.
+      These agents can be customized for customer service, lead capture, sales support, content creation, scheduling, internal operations,
+      cybersecurity guidance, and digital transformation.
+    </p>
+
+    <div class="grid">
+      <div class="card"><strong>🤖 AI Automation</strong> Automate conversations, workflows, customer questions, and repetitive business tasks.</div>
+      <div class="card"><strong>💻 Software Development</strong> Build custom web tools, landing pages, dashboards, and digital products.</div>
+      <div class="card"><strong>☁️ Cloud Systems</strong> Connect business tools through modern cloud infrastructure and scalable systems.</div>
+      <div class="card"><strong>🔐 Cybersecurity</strong> Help businesses understand risk, security basics, and safer digital operations.</div>
+      <div class="card"><strong>📲 Marketing</strong> Create smarter content, stronger funnels, and AI-powered customer engagement.</div>
+      <div class="card"><strong>💼 Business Agents</strong> Build branded AI assistants that small businesses can use and sell.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="voice">
+  <div class="feature-box">
+    <h2>Voice AI Agent</h2>
+    <p>
+      CringleAI also includes voice-powered experiences, giving businesses a more natural way to speak with customers,
+      answer questions, and create interactive digital support systems.
+    </p>
+
     <elevenlabs-convai agent-id="agent_6301kqgs8pxjf19t6affgfcbzwf9"></elevenlabs-convai>
+  </div>
+</section>
+
+<section class="section" id="fitness">
+  <div class="feature-box">
+    <h2>Chris Cringle Fitness</h2>
+    <p>
+      Alongside CringleAI, Chris Cringle Fitness provides coaching, transformation support, and wellness-focused guidance
+      for people ready to improve their body, mindset, and discipline.
+    </p>
+    <a href="https://www.jotform.com/form/261066929041053" target="_blank">Apply Now</a>
   </div>
 </section>
 
 <section class="section" id="contact">
   <div class="feature-box">
-    <h2>Contact Me</h2>
+    <h2>Build With CringleAI</h2>
+    <p>
+      If you are a small business owner, creator, coach, consultant, or entrepreneur ready to explore your own AI agent,
+      reach out today. This is version one — and the future is being built now.
+    </p>
+
     <form action="https://formsubmit.co/chrispcringle@gmail.com" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="How can CringleAI help you?" required></textarea>
-      <button type="submit">Send Message</button>
+      <textarea name="message" placeholder="Tell me what kind of AI agent or digital system you want to build." required></textarea>
+      <button type="submit">Start Building</button>
     </form>
   </div>
 </section>
@@ -342,39 +415,69 @@ setInterval(() => {
   document.getElementById('counter').innerText = count;
 }, 3000);
 
-const words = ['AI Automation', 'Software Development', 'Cloud Systems', 'Cybersecurity', 'Fitness Coaching'];
+const words = [
+  'GPT-Powered Business Agents',
+  'AI Automation',
+  'Cloud Systems',
+  'Cybersecurity Intelligence',
+  'Small Business AI Solutions'
+];
+
 let wordIndex = 0;
+
 function typeRotate() {
   document.getElementById('typing-text').innerText = words[wordIndex];
   wordIndex = (wordIndex + 1) % words.length;
 }
+
 setInterval(typeRotate, 2000);
 typeRotate();
 
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-let particles = [];
-for(let i=0;i<50;i++) {
-  particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+1,dx:Math.random()-0.5,dy:Math.random()-0.5});
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 }
-function animate() {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  particles.forEach(p=>{
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle='rgba(255,165,0,0.5)';
-    ctx.fill();
-    p.x+=p.dx;
-    p.y+=p.dy;
-    if(p.x<0||p.x>canvas.width)p.dx*=-1;
-    if(p.y<0||p.y>canvas.height)p.dy*=-1;
+
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+let particles = [];
+
+for (let i = 0; i < 55; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2 + 1,
+    dx: Math.random() - 0.5,
+    dy: Math.random() - 0.5
   });
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255,165,0,0.5)';
+    ctx.fill();
+
+    p.x += p.dx;
+    p.y += p.dy;
+
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+  });
+
   requestAnimationFrame(animate);
 }
+
 animate();
 </script>
+
 <script>
 const CRINGLE_WORKER_URL = "https://cringleai-api.chrispcringle.workers.dev/";
 
@@ -461,8 +564,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
 <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
 
 </body>
 </html>
-

@@ -533,15 +533,17 @@ async function sendCringleMessage() {
     if (!response.ok) {
       throw new Error(data.error || "Something went wrong.");
     }
+console.log("OPENAI RESPONSE:", data);
 
-    const aiReply =
-  data.output?.[0]?.content?.[0]?.text ||
+const aiReply =
   data.output_text ||
-  data.reply ||
+  data.output?.[0]?.content?.[0]?.text ||
+  data.output?.[0]?.content?.[0]?.content ||
+  data.choices?.[0]?.message?.content ||
+  data.error?.message ||
   "No response returned.";
 
-
-    addMessage(aiReply, "ai");
+addMessage(aiReply, "ai");
 saveHistory("assistant", aiReply);
 
   } catch (error) {

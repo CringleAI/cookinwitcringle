@@ -162,6 +162,75 @@
       min-height: 450px;
       display: block;
     }
+    .chat-shell {
+  margin-top: 35px;
+  background: rgba(5,5,5,0.92);
+  border: 1px solid rgba(245,196,91,0.35);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 0 35px rgba(255,165,0,0.14);
+}
+
+.chat-window {
+  height: 360px;
+  overflow-y: auto;
+  text-align: left;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,200,90,0.18);
+  margin-bottom: 18px;
+}
+
+.chat-message {
+  margin: 12px 0;
+  padding: 14px 16px;
+  border-radius: 16px;
+  line-height: 1.5;
+  max-width: 85%;
+}
+
+.user-message {
+  margin-left: auto;
+  background: linear-gradient(135deg, #ff8a00, #f5c45b);
+  color: #000;
+}
+
+.ai-message {
+  margin-right: auto;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border: 1px solid rgba(255,200,90,0.18);
+}
+
+.chat-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.chat-controls input {
+  flex: 1;
+}
+
+.chat-status {
+  color: #f5c45b;
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
+
+@media (max-width: 700px) {
+  .chat-controls {
+    flex-direction: column;
+  }
+
+  .chat-message {
+    max-width: 100%;
+  }
+
+  .chat-window {
+    height: 300px;
+  }
+}
   </style>
 </head>
 <body>
@@ -223,6 +292,26 @@
 <section class="section" id="ai">
   <div class="feature-box">
     <h2>Meet the CringleAI Assistant</h2>
+    <p>Ask CringleAI about AI automation, cybersecurity, cloud systems, business growth, websites, and digital strategy.</p>
+
+    <div class="chat-shell">
+      <div id="chatWindow" class="chat-window">
+        <div class="chat-message ai-message">
+          Welcome to CringleAI. How can I help you today?
+        </div>
+      </div>
+
+      <div class="chat-controls">
+        <input id="chatInput" type="text" placeholder="Ask CringleAI anything..." />
+        <button id="chatButton" type="button" onclick="sendCringleMessage()">Send</button>
+      </div>
+
+      <div id="chatStatus" class="chat-status"></div>
+    </div>
+
+    <br><br>
+
+    <h3>Voice AI Agent</h3>
     <elevenlabs-convai agent-id="agent_6301kqgs8pxjf19t6affgfcbzwf9"></elevenlabs-convai>
   </div>
 </section>
@@ -286,7 +375,92 @@ function animate() {
 }
 animate();
 </script>
+<script>
+const CRINGLE_WORKER_URL = "https://cringleai-api.chrispcringle.workers.dev/";
 
+let cringleHistory = JSON.parse(localStorage.getItem("cringleAIHistory")) || [];
+
+function addMessage(text, sender) {
+  const chatWindow = document.getElementById("chatWindow");
+  const messageDiv = document.createElement("div");
+
+  messageDiv.className = `chat-message ${sender === "user" ? "user-message" : "ai-message"}`;
+  messageDiv.innerText = text;
+
+  chatWindow.appendChild(messageDiv);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+function saveHistory(role, content) {
+  cringleHistory.push({ role, content });
+  localStorage.setItem("cringleAIHistory", JSON.stringify(cringleHistory.slice(-20)));
+}
+
+async function sendCringleMessage() {
+  const input = document.getElementById("chatInput");
+  const button = document.getElementById("chatButton");
+  const status = document.getElementById("chatStatus");
+
+  const message = input.value.trim();
+
+  if (!message) return;
+
+  addMessage(message, "user");
+  saveHistory("user", message);
+
+  input.value = "";
+  button.disabled = true;
+  button.innerText = "Thinking...";
+  status.innerText = "CringleAI is processing your request...";
+
+  try {
+    const response = await fetch(CRINGLE_WORKER_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message,
+        history: cringleHistory
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Something went wrong.");
+    }
+
+    const reply =
+      data.output_text ||
+      data.reply ||
+      data.output?.[0]?.content?.[0]?.text ||
+      data.error ||
+      "CringleAI responded, but no readable text was returned.";
+
+    addMessage(reply, "ai");
+    saveHistory("assistant", reply);
+
+  } catch (error) {
+    addMessage("Error: CringleAI could not connect right now. Please try again.", "ai");
+    console.error(error);
+  } finally {
+    button.disabled = false;
+    button.innerText = "Send";
+    status.innerText = "";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("chatInput");
+
+  input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      sendCringleMessage();
+    }
+  });
+});
+</script>
 <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
 
 </body>

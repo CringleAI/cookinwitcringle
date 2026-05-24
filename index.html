@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,15 +13,20 @@
 
   <style>
     :root{
-      --bg:#050505;
-      --panel:rgba(255,255,255,0.055);
-      --panel-strong:rgba(255,255,255,0.085);
-      --gold:#f7b955;
-      --orange:#ff8a00;
+      --bg:#020604;
+      --panel:rgba(255,255,255,0.065);
+      --panel-strong:rgba(255,255,255,0.095);
+      --green:#00ff88;
+      --green-deep:#00a85a;
+      --red:#ff2e3f;
+      --red-deep:#ad1020;
+      --white:#ffffff;
       --text:#ffffff;
       --muted:rgba(255,255,255,0.76);
-      --border:rgba(255,185,85,0.18);
-      --shadow:0 24px 80px rgba(0,0,0,0.45);
+      --border:rgba(0,255,136,0.22);
+      --red-border:rgba(255,46,63,0.26);
+      --shadow:0 24px 80px rgba(0,0,0,0.50);
+      --email:contact@cringleai.com;
     }
 
     *{
@@ -46,19 +52,21 @@
       position:fixed;
       inset:0;
       background:
-        radial-gradient(circle at top left, rgba(255,138,0,0.24), transparent 32%),
-        radial-gradient(circle at bottom right, rgba(247,185,85,0.12), transparent 35%),
+        radial-gradient(circle at top left, rgba(0,255,136,0.24), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(255,46,63,0.18), transparent 36%),
         linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.98)),
-        url('38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png') center center / 32% no-repeat;
+        url('38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png') center center / 31% no-repeat;
       z-index:-2;
-      opacity:0.42;
+      opacity:0.48;
     }
 
     body::after{
       content:"";
       position:fixed;
       inset:0;
-      background-image:linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-image:
+        linear-gradient(rgba(0,255,136,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
       background-size:60px 60px;
       pointer-events:none;
       z-index:-1;
@@ -78,7 +86,7 @@
       align-items:center;
       padding:18px 8%;
       backdrop-filter:blur(16px);
-      background:rgba(0,0,0,0.76);
+      background:rgba(2,6,4,0.84);
       border-bottom:1px solid var(--border);
     }
 
@@ -87,24 +95,29 @@
       align-items:center;
       gap:10px;
       font-size:1.35rem;
-      font-weight:800;
-      color:var(--gold);
+      font-weight:900;
+      color:var(--white);
       letter-spacing:1px;
+      text-decoration:none;
+    }
+
+    .logo strong{
+      color:var(--green);
     }
 
     .logo-mark{
-      width:34px;
-      height:34px;
+      width:36px;
+      height:36px;
       border-radius:50%;
-      border:1px solid rgba(247,185,85,0.55);
+      border:1px solid rgba(0,255,136,0.62);
       background:url('38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png') center / cover no-repeat;
-      box-shadow:0 0 28px rgba(247,185,85,0.22);
+      box-shadow:0 0 28px rgba(0,255,136,0.25);
     }
 
     nav ul{
       display:flex;
       align-items:center;
-      gap:24px;
+      gap:22px;
       list-style:none;
     }
 
@@ -116,29 +129,29 @@
     }
 
     nav a:hover{
-      color:var(--gold);
+      color:var(--green);
     }
 
     .nav-cta{
       padding:10px 16px;
       border-radius:999px;
-      background:linear-gradient(135deg,var(--orange),var(--gold));
-      color:#050505 !important;
-      font-weight:800;
+      background:linear-gradient(135deg,var(--green),var(--white),var(--red));
+      color:#020604 !important;
+      font-weight:900;
     }
 
     .hero{
-      min-height:100vh;
+      min-height:96vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:110px 8% 90px;
+      padding:110px 8% 80px;
       text-align:center;
       position:relative;
     }
 
     .hero-content{
-      max-width:1050px;
+      max-width:1060px;
     }
 
     .badge-row{
@@ -152,16 +165,20 @@
     .badge{
       border:1px solid var(--border);
       background:rgba(255,255,255,0.045);
-      color:rgba(255,255,255,0.88);
+      color:rgba(255,255,255,0.9);
       border-radius:999px;
       padding:8px 14px;
       font-size:0.82rem;
       letter-spacing:0.4px;
     }
 
+    .badge:nth-child(even){
+      border-color:var(--red-border);
+    }
+
     .eyebrow{
-      color:var(--gold);
-      font-weight:800;
+      color:var(--green);
+      font-weight:900;
       letter-spacing:3px;
       margin-bottom:18px;
       text-transform:uppercase;
@@ -169,20 +186,20 @@
     }
 
     h1{
-      font-size:clamp(3rem, 8vw, 6.8rem);
+      font-size:clamp(3rem, 8vw, 6.7rem);
       line-height:0.96;
       margin-bottom:26px;
       letter-spacing:-4px;
     }
 
     .gradient-text{
-      background:linear-gradient(135deg,var(--orange),#ffd26f,var(--gold));
+      background:linear-gradient(135deg,var(--green),var(--white),var(--red));
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
     }
 
     .hero p{
-      max-width:860px;
+      max-width:870px;
       margin:auto;
       font-size:1.2rem;
       color:var(--muted);
@@ -204,32 +221,33 @@
       padding:16px 28px;
       border-radius:999px;
       text-decoration:none;
-      font-weight:800;
+      font-weight:900;
       transition:0.25s ease;
       border:none;
       cursor:pointer;
     }
 
     .btn-primary{
-      background:linear-gradient(135deg,var(--orange),var(--gold));
-      color:#050505;
-      box-shadow:0 12px 40px rgba(255,138,0,0.18);
+      background:linear-gradient(135deg,var(--green),var(--white));
+      color:#020604;
+      box-shadow:0 12px 40px rgba(0,255,136,0.17);
     }
 
     .btn-primary:hover{
       transform:translateY(-3px);
-      box-shadow:0 16px 52px rgba(255,138,0,0.25);
+      box-shadow:0 16px 52px rgba(0,255,136,0.26);
     }
 
     .btn-secondary{
-      border:1px solid rgba(255,185,85,0.42);
-      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,46,63,0.46);
+      background:rgba(255,46,63,0.07);
       color:white;
     }
 
     .btn-secondary:hover{
       transform:translateY(-3px);
-      border-color:var(--gold);
+      border-color:var(--red);
+      background:rgba(255,46,63,0.13);
     }
 
     .trust-strip{
@@ -238,7 +256,7 @@
       padding:24px;
       border:1px solid var(--border);
       border-radius:28px;
-      background:rgba(255,255,255,0.04);
+      background:rgba(255,255,255,0.045);
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:16px;
@@ -251,9 +269,13 @@
     }
 
     .trust-item strong{
-      color:var(--gold);
+      color:var(--green);
       font-size:1.3rem;
       display:block;
+    }
+
+    .trust-item:nth-child(even) strong{
+      color:var(--red);
     }
 
     .trust-item span{
@@ -262,19 +284,23 @@
     }
 
     .section{
-      padding:105px 8%;
+      padding:96px 8%;
     }
 
     .section-title{
       text-align:center;
-      margin-bottom:64px;
+      margin-bottom:58px;
     }
 
     .section-title h2{
       font-size:clamp(2.35rem, 5vw, 3.4rem);
       margin-bottom:15px;
-      color:var(--gold);
+      color:var(--white);
       letter-spacing:-1px;
+    }
+
+    .section-title h2 span{
+      color:var(--green);
     }
 
     .section-title p{
@@ -287,7 +313,7 @@
     .grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(265px,1fr));
-      gap:25px;
+      gap:24px;
     }
 
     .card{
@@ -300,20 +326,28 @@
       box-shadow:0 16px 50px rgba(0,0,0,0.2);
     }
 
+    .card:nth-child(even){
+      border-color:var(--red-border);
+    }
+
     .card:hover{
       transform:translateY(-6px);
-      border-color:rgba(247,185,85,0.68);
+      border-color:rgba(0,255,136,0.75);
       background:var(--panel-strong);
     }
 
     .card h3{
       margin-bottom:13px;
-      color:var(--gold);
+      color:var(--green);
       font-size:1.28rem;
     }
 
+    .card:nth-child(even) h3{
+      color:var(--red);
+    }
+
     .card p{
-      color:rgba(255,255,255,0.77);
+      color:rgba(255,255,255,0.78);
     }
 
     .card ul{
@@ -335,7 +369,7 @@
 
     .step{
       position:relative;
-      background:linear-gradient(135deg, rgba(255,138,0,0.09), rgba(255,255,255,0.04));
+      background:linear-gradient(135deg, rgba(0,255,136,0.09), rgba(255,46,63,0.06));
       border:1px solid var(--border);
       border-radius:24px;
       padding:30px;
@@ -351,15 +385,23 @@
       align-items:center;
       justify-content:center;
       border-radius:50%;
-      background:linear-gradient(135deg,var(--orange),var(--gold));
-      color:#050505;
+      background:linear-gradient(135deg,var(--green),var(--white));
+      color:#020604;
       font-weight:900;
       margin-bottom:18px;
     }
 
+    .step:nth-child(even)::before{
+      background:linear-gradient(135deg,var(--red),var(--white));
+    }
+
     .step h3{
-      color:var(--gold);
+      color:var(--green);
       margin-bottom:10px;
+    }
+
+    .step:nth-child(even) h3{
+      color:var(--red);
     }
 
     .step p{
@@ -367,10 +409,10 @@
     }
 
     .demo-box{
-      background:linear-gradient(135deg, rgba(255,138,0,0.1), rgba(255,255,255,0.035));
+      background:linear-gradient(135deg, rgba(0,255,136,0.1), rgba(255,46,63,0.07));
       border:1px solid var(--border);
       border-radius:34px;
-      padding:50px;
+      padding:48px;
       box-shadow:var(--shadow);
     }
 
@@ -382,10 +424,10 @@
     }
 
     .demo-screen{
-      min-height:360px;
+      min-height:350px;
       border-radius:24px;
-      background:linear-gradient(135deg,#0b0b0b,#181818);
-      border:1px solid rgba(255,185,85,0.16);
+      background:linear-gradient(135deg,#03100a,#111111);
+      border:1px solid rgba(0,255,136,0.18);
       padding:24px;
       display:flex;
       flex-direction:column;
@@ -402,22 +444,22 @@
 
     .chat-bubble.user{
       align-self:flex-end;
-      background:linear-gradient(135deg,var(--orange),var(--gold));
-      color:#050505;
-      font-weight:700;
+      background:linear-gradient(135deg,var(--red),var(--white));
+      color:#020604;
+      font-weight:800;
     }
 
     .chat-bubble.ai{
       align-self:flex-start;
       background:rgba(255,255,255,0.07);
-      color:rgba(255,255,255,0.86);
-      border:1px solid rgba(255,255,255,0.08);
+      color:rgba(255,255,255,0.87);
+      border:1px solid rgba(0,255,136,0.14);
     }
 
     .about-founder{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:45px;
+      gap:36px;
       align-items:center;
     }
 
@@ -429,10 +471,14 @@
     }
 
     .founder-box h2{
-      color:var(--gold);
+      color:var(--white);
       margin-bottom:18px;
       font-size:clamp(2rem,4vw,2.8rem);
       letter-spacing:-1px;
+    }
+
+    .founder-box h2 span{
+      color:var(--green);
     }
 
     .founder-box p{
@@ -442,7 +488,7 @@
     .stats{
       display:grid;
       grid-template-columns:repeat(2,1fr);
-      gap:20px;
+      gap:18px;
     }
 
     .stat{
@@ -450,13 +496,21 @@
       padding:28px;
       border-radius:22px;
       text-align:center;
-      border:1px solid rgba(255,185,85,0.14);
+      border:1px solid rgba(0,255,136,0.16);
+    }
+
+    .stat:nth-child(even){
+      border-color:rgba(255,46,63,0.22);
     }
 
     .stat h3{
-      color:var(--gold);
+      color:var(--green);
       font-size:2rem;
       margin-bottom:4px;
+    }
+
+    .stat:nth-child(even) h3{
+      color:var(--red);
     }
 
     .stat p{
@@ -465,8 +519,8 @@
 
     .contact-wrap{
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:28px;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:26px;
       align-items:stretch;
     }
 
@@ -477,8 +531,12 @@
       padding:38px;
     }
 
+    .contact-card.featured{
+      background:linear-gradient(135deg, rgba(0,255,136,0.1), rgba(255,255,255,0.04));
+    }
+
     .contact-card h3{
-      color:var(--gold);
+      color:var(--green);
       font-size:1.7rem;
       margin-bottom:15px;
     }
@@ -501,28 +559,37 @@
       align-items:center;
       text-decoration:none;
       color:white;
-      background:rgba(255,255,255,0.045);
-      border:1px solid rgba(255,185,85,0.13);
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(0,255,136,0.15);
       padding:16px 18px;
       border-radius:18px;
       transition:0.25s ease;
     }
 
     .contact-list a:hover{
-      border-color:var(--gold);
+      border-color:var(--green);
       transform:translateX(4px);
+      background:rgba(0,255,136,0.08);
+    }
+
+    .email-highlight{
+      display:inline-block;
+      margin-top:10px;
+      color:var(--green);
+      font-weight:900;
+      word-break:break-word;
     }
 
     .cta-section{
       text-align:center;
-      padding:110px 8%;
+      padding:100px 8%;
     }
 
     .cta-box{
-      background:linear-gradient(135deg, rgba(255,138,0,0.15), rgba(255,255,255,0.04));
-      border:1px solid rgba(255,185,85,0.22);
+      background:linear-gradient(135deg, rgba(0,255,136,0.13), rgba(255,46,63,0.09));
+      border:1px solid rgba(0,255,136,0.23);
       border-radius:36px;
-      padding:70px 40px;
+      padding:66px 38px;
       box-shadow:var(--shadow);
     }
 
@@ -532,22 +599,26 @@
       letter-spacing:-1px;
     }
 
+    .cta-box h2 span{
+      color:var(--green);
+    }
+
     .cta-box p{
       max-width:760px;
       margin:auto;
-      color:rgba(255,255,255,0.8);
+      color:rgba(255,255,255,0.82);
       font-size:1.05rem;
     }
 
     footer{
-      padding:42px 8%;
-      border-top:1px solid rgba(255,185,85,0.12);
+      padding:40px 8%;
+      border-top:1px solid rgba(0,255,136,0.14);
       text-align:center;
-      color:#858585;
+      color:#8d8d8d;
     }
 
     footer a{
-      color:var(--gold);
+      color:var(--green);
       text-decoration:none;
       margin:0 10px;
     }
@@ -591,7 +662,7 @@
 
       .section,
       .cta-section{
-        padding:80px 6%;
+        padding:76px 6%;
       }
 
       .demo-box,
@@ -616,7 +687,7 @@
   <nav>
     <a href="#home" class="logo" aria-label="CringleAI Home">
       <span class="logo-mark"></span>
-      <span>CringleAI</span>
+      <span>Cringle<strong>AI</strong></span>
     </a>
 
     <ul>
@@ -625,7 +696,7 @@
       <li><a href="#automation">Automation</a></li>
       <li><a href="#demo">Demo</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#contact" class="nav-cta">Contact</a></li>
+      <li><a href="mailto:contact@cringleai.com?subject=CringleAI%20Project%20Inquiry" class="nav-cta">Email Us</a></li>
     </ul>
   </nav>
 
@@ -636,7 +707,7 @@
           <span class="badge">AI Agents</span>
           <span class="badge">Voice AI</span>
           <span class="badge">SMS Automation</span>
-          <span class="badge">Cloud Workflows</span>
+          <span class="badge">Lead Systems</span>
         </div>
 
         <div class="eyebrow">AI Automation For Small Business</div>
@@ -651,7 +722,7 @@
         </p>
 
         <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary">Build My AI System</a>
+          <a href="mailto:contact@cringleai.com?subject=Build%20My%20AI%20System&body=Hello%20CringleAI,%0D%0A%0D%0AI%20am%20interested%20in%20building%20an%20AI%20automation%20system.%20Please%20contact%20me%20with%20next%20steps." class="btn btn-primary">Build My AI System</a>
           <a href="#services" class="btn btn-secondary">View Services</a>
         </div>
       </div>
@@ -668,19 +739,19 @@
           <span>Business Agents</span>
         </div>
         <div class="trust-item">
-          <strong>Cloud</strong>
-          <span>Modern Infrastructure</span>
+          <strong>SMS</strong>
+          <span>Text Workflows</span>
         </div>
         <div class="trust-item">
-          <strong>Growth</strong>
-          <span>Lead Capture Systems</span>
+          <strong>Leads</strong>
+          <span>Client Capture</span>
         </div>
       </div>
     </section>
 
     <section class="section" id="services">
       <div class="section-title">
-        <h2>AI Systems Built To Scale</h2>
+        <h2>AI Systems <span>Built To Scale</span></h2>
         <p>
           CringleAI helps businesses automate communication, improve customer support, capture leads, and modernize operations using practical AI technology.
         </p>
@@ -731,7 +802,7 @@
 
     <section class="section" id="automation">
       <div class="section-title">
-        <h2>How CringleAI Works</h2>
+        <h2>How <span>CringleAI</span> Works</h2>
         <p>
           A simple build process designed to turn your business idea into a working automation system.
         </p>
@@ -762,12 +833,12 @@
         <div class="demo-layout">
           <div>
             <div class="section-title" style="text-align:left; margin-bottom:24px;">
-              <h2>Live AI Demo</h2>
+              <h2>Live <span>AI Demo</span></h2>
               <p>
-                The CringleAI live business agent platform is being upgraded. This section is prepared for a future embedded chatbot, voice agent, booking assistant, or lead intake system.
+                This section is ready for a future embedded chatbot, voice agent, booking assistant, or lead intake system. For now, every inquiry button connects directly to email.
               </p>
             </div>
-            <a href="#contact" class="btn btn-primary">Request A Demo</a>
+            <a href="mailto:contact@cringleai.com?subject=Request%20A%20CringleAI%20Demo&body=Hello%20CringleAI,%0D%0A%0D%0AI%20would%20like%20to%20request%20a%20demo%20for%20an%20AI%20automation%20system." class="btn btn-primary">Request A Demo</a>
           </div>
 
           <div class="demo-screen" aria-label="AI demo preview">
@@ -784,7 +855,7 @@
     <section class="section" id="about">
       <div class="about-founder">
         <div class="founder-box">
-          <h2>Built By Chris Cringle</h2>
+          <h2>Built By <span>Chris Cringle</span></h2>
           <p>
             CringleAI is being developed as a next-generation AI automation brand focused on helping small businesses modernize through intelligent systems, automation, and digital transformation.
           </p>
@@ -817,37 +888,37 @@
 
     <section class="section" id="contact">
       <div class="section-title">
-        <h2>Start Your AI Automation Project</h2>
+        <h2>Start Your <span>AI Automation Project</span></h2>
         <p>
-          Ready to build an AI chatbot, SMS bot, voice assistant, or custom workflow? Use the links below to connect with CringleAI.
+          Ready to build an AI chatbot, SMS bot, voice assistant, or custom workflow? Contact CringleAI directly by email.
         </p>
       </div>
 
       <div class="contact-wrap">
-        <div class="contact-card">
-          <h3>Business Inquiries</h3>
+        <div class="contact-card featured">
+          <h3>Email CringleAI</h3>
           <p>
-            Replace the placeholder email and social links below with your real links when you are ready. These are built as working link areas instead of dead buttons.
+            Click either email button below and your email app will open with a pre-filled CringleAI inquiry.
           </p>
+          <a class="email-highlight" href="mailto:contact@cringleai.com?subject=CringleAI%20Project%20Inquiry">contact@cringleai.com</a>
 
-          <ul class="contact-list">
-            <li><a href="mailto:contact@cringleai.com">Email CringleAI <span>→</span></a></li>
-            <li><a href="https://www.jotform.com/form/261066929041053" target="_blank" rel="noopener">Client Intake Form <span>→</span></a></li>
-            <li><a href="https://github.com/CringleAI" target="_blank" rel="noopener">GitHub <span>→</span></a></li>
-          </ul>
+          <div class="hero-buttons" style="justify-content:flex-start; margin-top:28px;">
+            <a href="mailto:contact@cringleai.com?subject=CringleAI%20Project%20Inquiry&body=Hello%20CringleAI,%0D%0A%0D%0AI%20am%20interested%20in%20your%20AI%20automation%20services.%20Please%20contact%20me%20with%20next%20steps." class="btn btn-primary">Send Project Email</a>
+            <a href="mailto:contact@cringleai.com?subject=CringleAI%20Consultation%20Request&body=Hello%20CringleAI,%0D%0A%0D%0AI%20would%20like%20to%20book%20a%20consultation." class="btn btn-secondary">Request Consultation</a>
+          </div>
         </div>
 
         <div class="contact-card">
           <h3>Popular Builds</h3>
           <p>
-            CringleAI can be positioned around practical, sellable automation packages for small businesses and creators.
+            These are practical, sellable automation packages for small businesses and creators.
           </p>
 
           <ul class="contact-list">
-            <li><a href="#services">AI Website Chatbot <span>View</span></a></li>
-            <li><a href="#services">AI SMS Assistant <span>View</span></a></li>
-            <li><a href="#services">AI Voice Intake Agent <span>View</span></a></li>
-            <li><a href="#services">Lead Capture Workflow <span>View</span></a></li>
+            <li><a href="mailto:contact@cringleai.com?subject=AI%20Website%20Chatbot%20Inquiry">AI Website Chatbot <span>Email</span></a></li>
+            <li><a href="mailto:contact@cringleai.com?subject=AI%20SMS%20Assistant%20Inquiry">AI SMS Assistant <span>Email</span></a></li>
+            <li><a href="mailto:contact@cringleai.com?subject=AI%20Voice%20Intake%20Agent%20Inquiry">AI Voice Intake Agent <span>Email</span></a></li>
+            <li><a href="mailto:contact@cringleai.com?subject=Lead%20Capture%20Workflow%20Inquiry">Lead Capture Workflow <span>Email</span></a></li>
           </ul>
         </div>
       </div>
@@ -855,14 +926,14 @@
 
     <section class="cta-section">
       <div class="cta-box">
-        <h2>Ready To Build Your AI System?</h2>
+        <h2>Ready To Build Your <span>AI System?</span></h2>
         <p>
           Explore custom AI agents, automation systems, voice assistants, SMS workflows, and digital business infrastructure powered by CringleAI.
         </p>
 
         <div class="hero-buttons">
-          <a href="https://www.jotform.com/form/261066929041053" target="_blank" rel="noopener" class="btn btn-primary">Book Consultation</a>
-          <a href="mailto:contact@cringleai.com" class="btn btn-secondary">Contact CringleAI</a>
+          <a href="mailto:contact@cringleai.com?subject=Book%20CringleAI%20Consultation&body=Hello%20CringleAI,%0D%0A%0D%0AI%20would%20like%20to%20book%20a%20consultation%20for%20an%20AI%20automation%20system." class="btn btn-primary">Book Consultation</a>
+          <a href="mailto:contact@cringleai.com?subject=Contact%20CringleAI" class="btn btn-secondary">Contact CringleAI</a>
         </div>
       </div>
     </section>
@@ -872,7 +943,7 @@
     <p>© 2026 CringleAI — Built By Chris Cringle</p>
     <br />
     <div>
-      <a href="https://github.com/CringleAI" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:contact@cringleai.com?subject=CringleAI%20Project%20Inquiry">Email</a>
       <a href="#contact">Contact</a>
       <a href="#services">Services</a>
       <a href="#home">Back To Top</a>
@@ -880,4 +951,3 @@
   </footer>
 </body>
 </html>
-

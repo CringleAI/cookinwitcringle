@@ -1,953 +1,593 @@
 
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>CringleAI | AI Automation For Small Business</title>
+  <title>CringleAI | GPT-Powered Business Agents</title>
+  <link rel="icon" type="image/png" href="38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png">
+<link rel="apple-touch-icon" href="38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png">
+  <meta name="description" content="CringleAI builds premium GPT-powered AI agents for small businesses, creators, automation, cybersecurity, cloud systems, marketing, and digital growth." />
+<meta property="og:title" content="CringleAI | GPT-Powered Business Agents">
+<meta property="og:description" content="Premium AI agents, automation systems, cloud tools, cybersecurity guidance, and digital business solutions by Chris Cringle.">
+<meta property="og:image" content="https://cringleai.net/38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png">
+<meta property="og:url" content="https://cringleai.net/">
+<meta property="og:type" content="website">
 
-  <meta name="description" content="CringleAI builds AI automation systems, voice agents, SMS bots, lead capture workflows, and intelligent business tools for small businesses and creators." />
-
-  <link rel="icon" type="image/png" href="38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png" />
-
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CringleAI | GPT-Powered Business Agents">
+<meta name="twitter:description" content="The future operating layer for small businesses, creators, and entrepreneurs.">
+<meta name="twitter:image" content="https://cringleai.net/38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png">
   <style>
-    :root{
-      --bg:#020604;
-      --panel:rgba(255,255,255,0.065);
-      --panel-strong:rgba(255,255,255,0.095);
-      --green:#00ff88;
-      --green-deep:#00a85a;
-      --red:#ff2e3f;
-      --red-deep:#ad1020;
-      --white:#ffffff;
-      --text:#ffffff;
-      --muted:rgba(255,255,255,0.76);
-      --border:rgba(0,255,136,0.22);
-      --red-border:rgba(255,46,63,0.26);
-      --shadow:0 24px 80px rgba(0,0,0,0.50);
-      --email:contact@cringleai.com;
-    }
+    * { box-sizing: border-box; }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      background:var(--bg);
-      color:var(--text);
-      font-family:Arial, Helvetica, sans-serif;
-      overflow-x:hidden;
-      line-height:1.6;
-    }
-
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
       background:
-        radial-gradient(circle at top left, rgba(0,255,136,0.24), transparent 34%),
-        radial-gradient(circle at bottom right, rgba(255,46,63,0.18), transparent 36%),
-        linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.98)),
-        url('38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png') center center / 31% no-repeat;
-      z-index:-2;
-      opacity:0.48;
+        radial-gradient(circle at top, rgba(255,165,0,0.22), transparent 35%),
+        linear-gradient(rgba(0,0,0,0.92), rgba(0,0,0,0.98)),
+        url('38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png') center center / 42% no-repeat fixed,
+        #070707;
+      overflow-x: hidden;
+    }
+
+    canvas#particles {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(12px);
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255,200,90,0.25);
+    }
+
+    nav a {
+      color: #f5c45b;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 70px 20px;
+    }
+
+    .hero, .feature-box {
+      max-width: 1100px;
+      margin: auto;
+      background: rgba(0,0,0,0.76);
+      border: 1px solid rgba(255,200,90,0.34);
+      border-radius: 30px;
+      padding: 55px 30px;
+      box-shadow: 0 0 70px rgba(255,153,0,0.16);
+    }
+
+    .eyebrow {
+      color: #f5c45b;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 7vw, 5.6rem);
+      margin: 0;
+      color: #f5c45b;
+      letter-spacing: -2px;
+    }
+
+    .hero-subheadline {
+      max-width: 900px;
+      margin: 25px auto 10px;
+      font-size: 1.28rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.94);
+    }
+
+    .hero-mission {
+      max-width: 900px;
+      margin: 18px auto 30px;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: rgba(245,196,91,0.95);
+    }
+
+    #clock {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: orange;
+      letter-spacing: 3px;
+      margin-top: 22px;
+      text-shadow: 0 0 10px rgba(255,165,0,0.5);
+    }
+
+    #typing-text {
+      font-size: 1.3rem;
+      color: white;
+      margin-top: 14px;
+      min-height: 36px;
+    }
+
+    .counter {
+      font-size: 1.1rem;
+      margin-top: 18px;
+      color: #f5c45b;
+    }
+
+    .terminal {
+      margin: 30px auto;
+      max-width: 760px;
+      background: #111;
+      border: 1px solid rgba(255,200,90,0.3);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: left;
+      font-family: monospace;
+      color: #00ff8a;
+      line-height: 1.8;
     }
 
-    body::after{
-      content:"";
-      position:fixed;
-      inset:0;
-      background-image:
-        linear-gradient(rgba(0,255,136,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size:60px 60px;
-      pointer-events:none;
-      z-index:-1;
-      mask-image:linear-gradient(to bottom, black, transparent 78%);
-    }
-
-    a{
-      color:inherit;
-    }
-
-    nav{
-      position:sticky;
-      top:0;
-      z-index:999;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:18px 8%;
-      backdrop-filter:blur(16px);
-      background:rgba(2,6,4,0.84);
-      border-bottom:1px solid var(--border);
-    }
-
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-size:1.35rem;
-      font-weight:900;
-      color:var(--white);
-      letter-spacing:1px;
-      text-decoration:none;
-    }
-
-    .logo strong{
-      color:var(--green);
-    }
-
-    .logo-mark{
-      width:36px;
-      height:36px;
-      border-radius:50%;
-      border:1px solid rgba(0,255,136,0.62);
-      background:url('38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png') center / cover no-repeat;
-      box-shadow:0 0 28px rgba(0,255,136,0.25);
-    }
-
-    nav ul{
-      display:flex;
-      align-items:center;
-      gap:22px;
-      list-style:none;
-    }
-
-    nav a{
-      text-decoration:none;
-      color:rgba(255,255,255,0.88);
-      font-size:0.94rem;
-      transition:0.25s ease;
-    }
-
-    nav a:hover{
-      color:var(--green);
-    }
-
-    .nav-cta{
-      padding:10px 16px;
-      border-radius:999px;
-      background:linear-gradient(135deg,var(--green),var(--white),var(--red));
-      color:#020604 !important;
-      font-weight:900;
-    }
-
-    .hero{
-      min-height:96vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:110px 8% 80px;
-      text-align:center;
-      position:relative;
-    }
-
-    .hero-content{
-      max-width:1060px;
-    }
-
-    .badge-row{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-bottom:24px;
-    }
-
-    .badge{
-      border:1px solid var(--border);
-      background:rgba(255,255,255,0.045);
-      color:rgba(255,255,255,0.9);
-      border-radius:999px;
-      padding:8px 14px;
-      font-size:0.82rem;
-      letter-spacing:0.4px;
-    }
-
-    .badge:nth-child(even){
-      border-color:var(--red-border);
-    }
-
-    .eyebrow{
-      color:var(--green);
-      font-weight:900;
-      letter-spacing:3px;
-      margin-bottom:18px;
-      text-transform:uppercase;
-      font-size:0.88rem;
-    }
-
-    h1{
-      font-size:clamp(3rem, 8vw, 6.7rem);
-      line-height:0.96;
-      margin-bottom:26px;
-      letter-spacing:-4px;
-    }
-
-    .gradient-text{
-      background:linear-gradient(135deg,var(--green),var(--white),var(--red));
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
-    .hero p{
-      max-width:870px;
-      margin:auto;
-      font-size:1.2rem;
-      color:var(--muted);
-    }
-
-    .hero-buttons{
-      margin-top:40px;
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:15px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:16px 28px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:900;
-      transition:0.25s ease;
-      border:none;
-      cursor:pointer;
-    }
-
-    .btn-primary{
-      background:linear-gradient(135deg,var(--green),var(--white));
-      color:#020604;
-      box-shadow:0 12px 40px rgba(0,255,136,0.17);
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-3px);
-      box-shadow:0 16px 52px rgba(0,255,136,0.26);
-    }
-
-    .btn-secondary{
-      border:1px solid rgba(255,46,63,0.46);
-      background:rgba(255,46,63,0.07);
-      color:white;
-    }
-
-    .btn-secondary:hover{
-      transform:translateY(-3px);
-      border-color:var(--red);
-      background:rgba(255,46,63,0.13);
-    }
-
-    .trust-strip{
-      max-width:1000px;
-      margin:0 auto;
-      padding:24px;
-      border:1px solid var(--border);
-      border-radius:28px;
-      background:rgba(255,255,255,0.045);
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
-      box-shadow:var(--shadow);
-    }
-
-    .trust-item{
-      text-align:center;
-      padding:16px;
-    }
-
-    .trust-item strong{
-      color:var(--green);
-      font-size:1.3rem;
-      display:block;
-    }
-
-    .trust-item:nth-child(even) strong{
-      color:var(--red);
-    }
-
-    .trust-item span{
-      color:var(--muted);
-      font-size:0.92rem;
-    }
-
-    .section{
-      padding:96px 8%;
-    }
-
-    .section-title{
-      text-align:center;
-      margin-bottom:58px;
-    }
-
-    .section-title h2{
-      font-size:clamp(2.35rem, 5vw, 3.4rem);
-      margin-bottom:15px;
-      color:var(--white);
-      letter-spacing:-1px;
-    }
-
-    .section-title h2 span{
-      color:var(--green);
-    }
-
-    .section-title p{
-      color:var(--muted);
-      max-width:760px;
-      margin:auto;
-      font-size:1.05rem;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(265px,1fr));
-      gap:24px;
-    }
-
-    .card{
-      background:var(--panel);
-      border:1px solid var(--border);
-      border-radius:26px;
-      padding:34px;
-      transition:0.25s ease;
-      backdrop-filter:blur(14px);
-      box-shadow:0 16px 50px rgba(0,0,0,0.2);
-    }
-
-    .card:nth-child(even){
-      border-color:var(--red-border);
-    }
-
-    .card:hover{
-      transform:translateY(-6px);
-      border-color:rgba(0,255,136,0.75);
-      background:var(--panel-strong);
-    }
-
-    .card h3{
-      margin-bottom:13px;
-      color:var(--green);
-      font-size:1.28rem;
-    }
-
-    .card:nth-child(even) h3{
-      color:var(--red);
-    }
-
-    .card p{
-      color:rgba(255,255,255,0.78);
-    }
-
-    .card ul{
-      margin-top:18px;
-      padding-left:18px;
-      color:rgba(255,255,255,0.72);
-    }
-
-    .card li{
-      margin:7px 0;
-    }
-
-    .process{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:22px;
-      counter-reset:steps;
-    }
-
-    .step{
-      position:relative;
-      background:linear-gradient(135deg, rgba(0,255,136,0.09), rgba(255,46,63,0.06));
-      border:1px solid var(--border);
-      border-radius:24px;
-      padding:30px;
-      min-height:210px;
-    }
-
-    .step::before{
-      counter-increment:steps;
-      content:"0" counter(steps);
-      display:inline-flex;
-      width:44px;
-      height:44px;
-      align-items:center;
-      justify-content:center;
-      border-radius:50%;
-      background:linear-gradient(135deg,var(--green),var(--white));
-      color:#020604;
-      font-weight:900;
-      margin-bottom:18px;
-    }
-
-    .step:nth-child(even)::before{
-      background:linear-gradient(135deg,var(--red),var(--white));
-    }
-
-    .step h3{
-      color:var(--green);
-      margin-bottom:10px;
-    }
-
-    .step:nth-child(even) h3{
-      color:var(--red);
-    }
-
-    .step p{
-      color:var(--muted);
-    }
-
-    .demo-box{
-      background:linear-gradient(135deg, rgba(0,255,136,0.1), rgba(255,46,63,0.07));
-      border:1px solid var(--border);
-      border-radius:34px;
-      padding:48px;
-      box-shadow:var(--shadow);
-    }
-
-    .demo-layout{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:30px;
-      align-items:center;
-    }
-
-    .demo-screen{
-      min-height:350px;
-      border-radius:24px;
-      background:linear-gradient(135deg,#03100a,#111111);
-      border:1px solid rgba(0,255,136,0.18);
-      padding:24px;
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      justify-content:center;
-    }
-
-    .chat-bubble{
-      max-width:85%;
-      padding:14px 16px;
-      border-radius:18px;
-      font-size:0.94rem;
-    }
-
-    .chat-bubble.user{
-      align-self:flex-end;
-      background:linear-gradient(135deg,var(--red),var(--white));
-      color:#020604;
-      font-weight:800;
-    }
-
-    .chat-bubble.ai{
-      align-self:flex-start;
-      background:rgba(255,255,255,0.07);
-      color:rgba(255,255,255,0.87);
-      border:1px solid rgba(0,255,136,0.14);
-    }
-
-    .about-founder{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:36px;
-      align-items:center;
-    }
-
-    .founder-box{
-      background:var(--panel);
-      border:1px solid var(--border);
-      border-radius:30px;
-      padding:42px;
-    }
-
-    .founder-box h2{
-      color:var(--white);
-      margin-bottom:18px;
-      font-size:clamp(2rem,4vw,2.8rem);
-      letter-spacing:-1px;
-    }
-
-    .founder-box h2 span{
-      color:var(--green);
-    }
-
-    .founder-box p{
-      color:var(--muted);
-    }
-
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:18px;
-    }
-
-    .stat{
-      background:rgba(255,255,255,0.045);
-      padding:28px;
-      border-radius:22px;
-      text-align:center;
-      border:1px solid rgba(0,255,136,0.16);
-    }
-
-    .stat:nth-child(even){
-      border-color:rgba(255,46,63,0.22);
-    }
-
-    .stat h3{
-      color:var(--green);
-      font-size:2rem;
-      margin-bottom:4px;
-    }
-
-    .stat:nth-child(even) h3{
-      color:var(--red);
-    }
-
-    .stat p{
-      color:var(--muted);
-    }
-
-    .contact-wrap{
-      display:grid;
-      grid-template-columns:1.1fr 0.9fr;
-      gap:26px;
-      align-items:stretch;
-    }
+    .cta { margin-top: 28px; }
 
-    .contact-card{
-      background:var(--panel);
-      border:1px solid var(--border);
-      border-radius:30px;
-      padding:38px;
+    .cta a, button, .feature-box a {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff8a00, #f5c45b);
+      color: #000;
+      padding: 16px 28px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 999px;
+      margin: 8px;
+      border: none;
+      cursor: pointer;
     }
 
-    .contact-card.featured{
-      background:linear-gradient(135deg, rgba(0,255,136,0.1), rgba(255,255,255,0.04));
+    .section {
+      padding: 75px 20px;
+      max-width: 1200px;
+      margin: auto;
     }
 
-    .contact-card h3{
-      color:var(--green);
-      font-size:1.7rem;
-      margin-bottom:15px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+      margin-top: 35px;
     }
 
-    .contact-card p{
-      color:var(--muted);
-      margin-bottom:18px;
+    .card {
+      background: rgba(15,15,15,0.9);
+      border: 1px solid rgba(255,200,90,0.22);
+      border-radius: 22px;
+      padding: 28px 22px;
+      line-height: 1.6;
     }
 
-    .contact-list{
-      list-style:none;
-      display:grid;
-      gap:13px;
-      margin-top:20px;
+    .card strong {
+      color: #f5c45b;
+      display: block;
+      margin-bottom: 8px;
     }
 
-    .contact-list a{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      text-decoration:none;
-      color:white;
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(0,255,136,0.15);
-      padding:16px 18px;
-      border-radius:18px;
-      transition:0.25s ease;
+    .chat-shell {
+      margin: 35px auto 0;
+      background: rgba(5,5,5,0.94);
+      border: 1px solid rgba(245,196,91,0.38);
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: 0 0 40px rgba(255,165,0,0.16);
+      max-width: 900px;
     }
 
-    .contact-list a:hover{
-      border-color:var(--green);
-      transform:translateX(4px);
-      background:rgba(0,255,136,0.08);
+    .chat-window {
+      height: 360px;
+      overflow-y: auto;
+      text-align: left;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,200,90,0.18);
+      margin-bottom: 18px;
     }
 
-    .email-highlight{
-      display:inline-block;
-      margin-top:10px;
-      color:var(--green);
-      font-weight:900;
-      word-break:break-word;
+    .chat-message {
+      margin: 12px 0;
+      padding: 14px 16px;
+      border-radius: 16px;
+      line-height: 1.5;
+      max-width: 85%;
     }
 
-    .cta-section{
-      text-align:center;
-      padding:100px 8%;
+    .user-message {
+      margin-left: auto;
+      background: linear-gradient(135deg, #ff8a00, #f5c45b);
+      color: #000;
     }
 
-    .cta-box{
-      background:linear-gradient(135deg, rgba(0,255,136,0.13), rgba(255,46,63,0.09));
-      border:1px solid rgba(0,255,136,0.23);
-      border-radius:36px;
-      padding:66px 38px;
-      box-shadow:var(--shadow);
+    .ai-message {
+      margin-right: auto;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border: 1px solid rgba(255,200,90,0.18);
     }
 
-    .cta-box h2{
-      font-size:clamp(2.3rem,5vw,3.4rem);
-      margin-bottom:18px;
-      letter-spacing:-1px;
+    .chat-controls {
+      display: flex;
+      gap: 12px;
     }
 
-    .cta-box h2 span{
-      color:var(--green);
+    .chat-controls input {
+      flex: 1;
     }
 
-    .cta-box p{
-      max-width:760px;
-      margin:auto;
-      color:rgba(255,255,255,0.82);
-      font-size:1.05rem;
+    .chat-status {
+      color: #f5c45b;
+      font-size: 0.95rem;
+      margin-top: 10px;
     }
 
-    footer{
-      padding:40px 8%;
-      border-top:1px solid rgba(0,255,136,0.14);
-      text-align:center;
-      color:#8d8d8d;
+    input, textarea {
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,200,90,0.3);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      width: 100%;
     }
 
-    footer a{
-      color:var(--green);
-      text-decoration:none;
-      margin:0 10px;
+    form {
+      max-width: 700px;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
-    footer a:hover{
-      text-decoration:underline;
+    elevenlabs-convai {
+      width: 100%;
+      min-height: 450px;
+      display: block;
     }
 
-    @media(max-width:940px){
-      nav{
-        flex-direction:column;
-        gap:16px;
+    @media (max-width: 700px) {
+      nav a {
+        display: inline-block;
+        margin: 6px;
       }
 
-      nav ul{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:16px;
+      .chat-controls {
+        flex-direction: column;
       }
 
-      h1{
-        letter-spacing:-2px;
+      .chat-message {
+        max-width: 100%;
       }
 
-      .trust-strip,
-      .demo-layout,
-      .about-founder,
-      .contact-wrap{
-        grid-template-columns:1fr;
-      }
-
-      .trust-strip{
-        max-width:620px;
-      }
-    }
-
-    @media(max-width:620px){
-      .hero{
-        padding-top:95px;
-      }
-
-      .section,
-      .cta-section{
-        padding:76px 6%;
-      }
-
-      .demo-box,
-      .founder-box,
-      .contact-card,
-      .cta-box{
-        padding:30px 22px;
-      }
-
-      .stats{
-        grid-template-columns:1fr;
-      }
-
-      .hero p{
-        font-size:1.04rem;
+      .chat-window {
+        height: 300px;
       }
     }
   </style>
 </head>
 
 <body>
-  <nav>
-    <a href="#home" class="logo" aria-label="CringleAI Home">
-      <span class="logo-mark"></span>
-      <span>Cringle<strong>AI</strong></span>
-    </a>
+<canvas id="particles"></canvas>
 
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#automation">Automation</a></li>
-      <li><a href="#demo">Demo</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="mailto:contact@cringleai.com?subject=CringleAI%20Project%20Inquiry" class="nav-cta">Email Us</a></li>
-    </ul>
-  </nav>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#services">Services</a>
+  <a href="#fitness">Fitness</a>
+  <a href="#voice">Voice AI</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <div class="badge-row">
-          <span class="badge">AI Agents</span>
-          <span class="badge">Voice AI</span>
-          <span class="badge">SMS Automation</span>
-          <span class="badge">Lead Systems</span>
-        </div>
+<header id="home">
+  <div class="hero">
+    <div class="eyebrow">CringleAI by Chris Cringle</div>
 
-        <div class="eyebrow">AI Automation For Small Business</div>
+    <h1>Meet CringleAI</h1>
 
-        <h1>
-          Build Smarter With <br />
-          <span class="gradient-text">CringleAI</span>
-        </h1>
+    <p class="hero-subheadline">
+      A premium GPT-powered AI agent built for the next generation of business.
+      CringleAI brings intelligent conversation, automation, strategy, and digital execution into one powerful interface.
+    </p>
 
-        <p>
-          Premium AI automation systems for small businesses, creators, and entrepreneurs — including chat agents, voice assistants, SMS workflows, lead capture systems, and digital business infrastructure.
-        </p>
+    <p class="hero-mission">
+      This is more than a chatbot. This is the future operating layer for small businesses, creators, and entrepreneurs.
+      CringleAI is being developed to help companies answer customers, capture leads, automate workflows, improve marketing,
+      support cybersecurity awareness, and scale with intelligent digital systems.
+    </p>
 
-        <div class="hero-buttons">
-          <a href="mailto:contact@cringleai.com?subject=Build%20My%20AI%20System&body=Hello%20CringleAI,%0D%0A%0D%0AI%20am%20interested%20in%20building%20an%20AI%20automation%20system.%20Please%20contact%20me%20with%20next%20steps." class="btn btn-primary">Build My AI System</a>
-          <a href="#services" class="btn btn-secondary">View Services</a>
-        </div>
-      </div>
-    </section>
+    <div id="clock"></div>
+    <div id="typing-text"></div>
 
-    <section class="section" aria-label="Business highlights">
-      <div class="trust-strip">
-        <div class="trust-item">
-          <strong>24/7</strong>
-          <span>Customer Automation</span>
-        </div>
-        <div class="trust-item">
-          <strong>AI</strong>
-          <span>Business Agents</span>
-        </div>
-        <div class="trust-item">
-          <strong>SMS</strong>
-          <span>Text Workflows</span>
-        </div>
-        <div class="trust-item">
-          <strong>Leads</strong>
-          <span>Client Capture</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="services">
-      <div class="section-title">
-        <h2>AI Systems <span>Built To Scale</span></h2>
-        <p>
-          CringleAI helps businesses automate communication, improve customer support, capture leads, and modernize operations using practical AI technology.
-        </p>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h3>🤖 AI Chat Agents</h3>
-          <p>GPT-powered assistants that answer questions, guide customers, qualify leads, and support your business around the clock.</p>
-          <ul>
-            <li>Website chat widgets</li>
-            <li>Lead qualification flows</li>
-            <li>FAQ automation</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>📲 SMS Automation</h3>
-          <p>AI text messaging systems for customer engagement, reminders, appointment flows, follow-ups, and support.</p>
-          <ul>
-            <li>Twilio-ready workflows</li>
-            <li>Appointment reminders</li>
-            <li>Automated follow-up messages</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>🎙 Voice AI Systems</h3>
-          <p>Modern AI voice assistants that can answer calls, collect information, route leads, and support real customer interactions.</p>
-          <ul>
-            <li>Voice intake agents</li>
-            <li>Lead capture by phone</li>
-            <li>Support call automation</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>⚙️ Workflow Automation</h3>
-          <p>Connect forms, spreadsheets, email, CRMs, and cloud tools so your business can move faster with less manual work.</p>
-          <ul>
-            <li>Google Sheets logging</li>
-            <li>Email notifications</li>
-            <li>Custom business workflows</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="automation">
-      <div class="section-title">
-        <h2>How <span>CringleAI</span> Works</h2>
-        <p>
-          A simple build process designed to turn your business idea into a working automation system.
-        </p>
-      </div>
-
-      <div class="process">
-        <div class="step">
-          <h3>Discover</h3>
-          <p>We identify the customer questions, repetitive tasks, and lead capture points your business needs automated.</p>
-        </div>
-        <div class="step">
-          <h3>Design</h3>
-          <p>We map the conversation flow, customer journey, backend tools, and call-to-action strategy.</p>
-        </div>
-        <div class="step">
-          <h3>Build</h3>
-          <p>We create the AI agent, SMS workflow, voice assistant, or automation system for your use case.</p>
-        </div>
-        <div class="step">
-          <h3>Launch</h3>
-          <p>Your system goes live on your website, phone number, form, or customer workflow so you can start capturing value.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="demo">
-      <div class="demo-box">
-        <div class="demo-layout">
-          <div>
-            <div class="section-title" style="text-align:left; margin-bottom:24px;">
-              <h2>Live <span>AI Demo</span></h2>
-              <p>
-                This section is ready for a future embedded chatbot, voice agent, booking assistant, or lead intake system. For now, every inquiry button connects directly to email.
-              </p>
-            </div>
-            <a href="mailto:contact@cringleai.com?subject=Request%20A%20CringleAI%20Demo&body=Hello%20CringleAI,%0D%0A%0D%0AI%20would%20like%20to%20request%20a%20demo%20for%20an%20AI%20automation%20system." class="btn btn-primary">Request A Demo</a>
-          </div>
-
-          <div class="demo-screen" aria-label="AI demo preview">
-            <div class="chat-bubble ai">Welcome to CringleAI. What kind of automation system are you trying to build?</div>
-            <div class="chat-bubble user">I need help capturing leads and answering customer questions.</div>
-            <div class="chat-bubble ai">Perfect. I can help qualify leads, collect contact details, answer FAQs, and route serious prospects to your team.</div>
-            <div class="chat-bubble user">Can this work with SMS or voice too?</div>
-            <div class="chat-bubble ai">Yes. CringleAI can support chat, SMS, voice workflows, and custom business automation.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="about-founder">
-        <div class="founder-box">
-          <h2>Built By <span>Chris Cringle</span></h2>
-          <p>
-            CringleAI is being developed as a next-generation AI automation brand focused on helping small businesses modernize through intelligent systems, automation, and digital transformation.
-          </p>
-          <br />
-          <p>
-            From AI agents and cloud systems to voice AI and automation infrastructure, the mission is to help businesses operate smarter in the AI era.
-          </p>
-        </div>
-
-        <div class="stats">
-          <div class="stat">
-            <h3>AI</h3>
-            <p>Automation Systems</p>
-          </div>
-          <div class="stat">
-            <h3>Voice</h3>
-            <p>AI Assistants</p>
-          </div>
-          <div class="stat">
-            <h3>SMS</h3>
-            <p>Customer Workflows</p>
-          </div>
-          <div class="stat">
-            <h3>Cloud</h3>
-            <p>Digital Infrastructure</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="section-title">
-        <h2>Start Your <span>AI Automation Project</span></h2>
-        <p>
-          Ready to build an AI chatbot, SMS bot, voice assistant, or custom workflow? Contact CringleAI directly by email.
-        </p>
-      </div>
-
-      <div class="contact-wrap">
-        <div class="contact-card featured">
-          <h3>Email CringleAI</h3>
-          <p>
-            Click either email button below and your email app will open with a pre-filled CringleAI inquiry.
-          </p>
-          <a class="email-highlight" href="mailto:contact@cringleai.com?subject=CringleAI%20Project%20Inquiry">contact@cringleai.com</a>
-
-          <div class="hero-buttons" style="justify-content:flex-start; margin-top:28px;">
-            <a href="mailto:contact@cringleai.com?subject=CringleAI%20Project%20Inquiry&body=Hello%20CringleAI,%0D%0A%0D%0AI%20am%20interested%20in%20your%20AI%20automation%20services.%20Please%20contact%20me%20with%20next%20steps." class="btn btn-primary">Send Project Email</a>
-            <a href="mailto:contact@cringleai.com?subject=CringleAI%20Consultation%20Request&body=Hello%20CringleAI,%0D%0A%0D%0AI%20would%20like%20to%20book%20a%20consultation." class="btn btn-secondary">Request Consultation</a>
-          </div>
-        </div>
-
-        <div class="contact-card">
-          <h3>Popular Builds</h3>
-          <p>
-            These are practical, sellable automation packages for small businesses and creators.
-          </p>
-
-          <ul class="contact-list">
-            <li><a href="mailto:contact@cringleai.com?subject=AI%20Website%20Chatbot%20Inquiry">AI Website Chatbot <span>Email</span></a></li>
-            <li><a href="mailto:contact@cringleai.com?subject=AI%20SMS%20Assistant%20Inquiry">AI SMS Assistant <span>Email</span></a></li>
-            <li><a href="mailto:contact@cringleai.com?subject=AI%20Voice%20Intake%20Agent%20Inquiry">AI Voice Intake Agent <span>Email</span></a></li>
-            <li><a href="mailto:contact@cringleai.com?subject=Lead%20Capture%20Workflow%20Inquiry">Lead Capture Workflow <span>Email</span></a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <div class="cta-box">
-        <h2>Ready To Build Your <span>AI System?</span></h2>
-        <p>
-          Explore custom AI agents, automation systems, voice assistants, SMS workflows, and digital business infrastructure powered by CringleAI.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="mailto:contact@cringleai.com?subject=Book%20CringleAI%20Consultation&body=Hello%20CringleAI,%0D%0A%0D%0AI%20would%20like%20to%20book%20a%20consultation%20for%20an%20AI%20automation%20system." class="btn btn-primary">Book Consultation</a>
-          <a href="mailto:contact@cringleai.com?subject=Contact%20CringleAI" class="btn btn-secondary">Contact CringleAI</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2026 CringleAI — Built By Chris Cringle</p>
-    <br />
-    <div>
-      <a href="mailto:contact@cringleai.com?subject=CringleAI%20Project%20Inquiry">Email</a>
-      <a href="#contact">Contact</a>
-      <a href="#services">Services</a>
-      <a href="#home">Back To Top</a>
+    <div class="counter">
+      AI Requests Processed: <span id="counter">6000</span>
     </div>
-  </footer>
+
+    <div class="chat-shell" id="ai">
+      <div id="chatWindow" class="chat-window">
+        <div class="chat-message ai-message">
+          Welcome to CringleAI. Ask me about AI automation, websites, cybersecurity, cloud systems, marketing, or business growth.
+        </div>
+      </div>
+
+      <div class="chat-controls">
+        <input id="chatInput" type="text" placeholder="Ask CringleAI anything..." />
+        <button id="chatButton" type="button" onclick="sendCringleMessage()">Send</button>
+      </div>
+
+      <div id="chatStatus" class="chat-status"></div>
+    </div>
+
+    <div class="terminal">
+      &gt; Initializing CringleAI...<br>
+      &gt; GPT-Powered Intelligence Online<br>
+      &gt; Cloudflare API Connected<br>
+      &gt; Business Agent Framework Active<br>
+      &gt; Ready for the Future of Work
+    </div>
+
+    <div class="cta">
+      <a href="#services">Explore AI Services</a>
+      <a href="#contact">Build My Agent</a>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="services">
+  <div class="feature-box">
+    <h2>AI Agents for the Future of Small Business</h2>
+    <p>
+      CringleAI is designed to help small businesses move faster, look more professional, and operate with intelligent automation.
+      These agents can be customized for customer service, lead capture, sales support, content creation, scheduling, internal operations,
+      cybersecurity guidance, and digital transformation.
+    </p>
+
+    <div class="grid">
+      <div class="card"><strong>🤖 AI Automation</strong> Automate conversations, workflows, customer questions, and repetitive business tasks.</div>
+      <div class="card"><strong>💻 Software Development</strong> Build custom web tools, landing pages, dashboards, and digital products.</div>
+      <div class="card"><strong>☁️ Cloud Systems</strong> Connect business tools through modern cloud infrastructure and scalable systems.</div>
+      <div class="card"><strong>🔐 Cybersecurity</strong> Help businesses understand risk, security basics, and safer digital operations.</div>
+      <div class="card"><strong>📲 Marketing</strong> Create smarter content, stronger funnels, and AI-powered customer engagement.</div>
+      <div class="card"><strong>💼 Business Agents</strong> Build branded AI assistants that small businesses can use and sell.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="voice">
+  <div class="feature-box">
+    <h2>Voice AI Agent</h2>
+    <p>
+      CringleAI also includes voice-powered experiences, giving businesses a more natural way to speak with customers,
+      answer questions, and create interactive digital support systems.
+    </p>
+
+    <elevenlabs-convai agent-id="agent_6301kqgs8pxjf19t6affgfcbzwf9"></elevenlabs-convai>
+  </div>
+</section>
+
+<section class="section" id="fitness">
+  <div class="feature-box">
+    <h2>Chris Cringle Fitness</h2>
+    <p>
+      Alongside CringleAI, Chris Cringle Fitness provides coaching, transformation support, and wellness-focused guidance
+      for people ready to improve their body, mindset, and discipline.
+    </p>
+    <a href="https://www.jotform.com/form/261066929041053" target="_blank">Apply Now</a>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="feature-box">
+    <h2>Build With CringleAI</h2>
+    <p>
+      If you are a small business owner, creator, coach, consultant, or entrepreneur ready to explore your own AI agent,
+      reach out today. This is version one — and the future is being built now.
+    </p>
+
+    <form action="https://formsubmit.co/chrispcringle@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Tell me what kind of AI agent or digital system you want to build." required></textarea>
+      <button type="submit">Start Building</button>
+    </form>
+  </div>
+</section>
+
+<script>
+function updateClock() {
+  const now = new Date();
+  document.getElementById('clock').innerHTML = now.toLocaleTimeString();
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+let count = 6000;
+setInterval(() => {
+  count++;
+  document.getElementById('counter').innerText = count;
+}, 3000);
+
+const words = [
+  'GPT-Powered Business Agents',
+  'AI Automation',
+  'Cloud Systems',
+  'Cybersecurity Intelligence',
+  'Small Business AI Solutions'
+];
+
+let wordIndex = 0;
+
+function typeRotate() {
+  document.getElementById('typing-text').innerText = words[wordIndex];
+  wordIndex = (wordIndex + 1) % words.length;
+}
+
+setInterval(typeRotate, 2000);
+typeRotate();
+
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+let particles = [];
+
+for (let i = 0; i < 55; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2 + 1,
+    dx: Math.random() - 0.5,
+    dy: Math.random() - 0.5
+  });
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255,165,0,0.5)';
+    ctx.fill();
+
+    p.x += p.dx;
+    p.y += p.dy;
+
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+<script>
+const CRINGLE_WORKER_URL = "https://cringleai-api.chrispcringle.workers.dev/";
+
+let cringleHistory = JSON.parse(localStorage.getItem("cringleAIHistory")) || [];
+
+function addMessage(text, sender) {
+  const chatWindow = document.getElementById("chatWindow");
+  const messageDiv = document.createElement("div");
+
+  messageDiv.className = `chat-message ${sender === "user" ? "user-message" : "ai-message"}`;
+  messageDiv.innerText = text;
+
+  chatWindow.appendChild(messageDiv);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+function saveHistory(role, content) {
+  cringleHistory.push({ role, content });
+  localStorage.setItem("cringleAIHistory", JSON.stringify(cringleHistory.slice(-20)));
+}
+
+async function sendCringleMessage() {
+  const input = document.getElementById("chatInput");
+  const button = document.getElementById("chatButton");
+  const status = document.getElementById("chatStatus");
+
+  const message = input.value.trim();
+
+  if (!message) return;
+
+  addMessage(message, "user");
+  saveHistory("user", message);
+
+  input.value = "";
+  button.disabled = true;
+  button.innerText = "Thinking...";
+  status.innerText = "CringleAI is processing your request...";
+
+  try {
+    const response = await fetch(CRINGLE_WORKER_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message,
+        history: cringleHistory
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Something went wrong.");
+    }
+console.log("OPENAI RESPONSE:", data);
+
+const aiReply =
+  data.output_text ||
+  data.output?.[0]?.content?.[0]?.text ||
+  data.output?.[0]?.content?.[0]?.content ||
+  data.choices?.[0]?.message?.content ||
+  data.error?.message ||
+  "No response returned.";
+
+addMessage(aiReply, "ai");
+saveHistory("assistant", aiReply);
+
+  } catch (error) {
+    addMessage("Error: CringleAI could not connect right now. Please try again.", "ai");
+    console.error(error);
+  } finally {
+    button.disabled = false;
+    button.innerText = "Send";
+    status.innerText = "";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("chatInput");
+
+  input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      sendCringleMessage();
+    }
+  });
+});
+</script>
+
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
+
 </body>
 </html>

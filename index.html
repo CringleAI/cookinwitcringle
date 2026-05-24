@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" href="38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png">
   <link rel="apple-touch-icon" href="38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png">
 
-  <meta name="description" content="CringleAI helps small businesses, creators, coaches, and everyday people use AI tools, automation, websites, cloud systems, cybersecurity basics, and digital workflows to save time and grow professionally." />
+  <meta name="description" content="CringleAI helps small businesses, creators, coaches, and everyday people use AI automation, websites, cloud tools, cybersecurity basics, and digital workflows to save time and grow professionally." />
 
   <style>
     * {
@@ -20,9 +20,9 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      color: #f8f8f8;
+      color: #ffffff;
       background:
-        linear-gradient(rgba(2, 12, 8, 0.94), rgba(2, 12, 8, 0.97)),
+        linear-gradient(rgba(2, 12, 8, 0.95), rgba(2, 12, 8, 0.98)),
         url("38E2C3E7-EF30-4B03-A138-76E3BF7CFDBE.png") center 120px / 360px no-repeat fixed,
         #020c08;
       line-height: 1.6;
@@ -37,7 +37,7 @@
       flex-wrap: wrap;
       gap: 18px;
       padding: 18px 20px;
-      background: rgba(1, 18, 10, 0.94);
+      background: rgba(1, 18, 10, 0.95);
       border-bottom: 1px solid rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(12px);
     }
@@ -62,13 +62,17 @@
       text-align: center;
     }
 
-    .hero {
-      max-width: 1100px;
+    .hero,
+    .panel {
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 28px;
-      padding: 60px 34px;
       box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero {
+      max-width: 1120px;
+      padding: 64px 34px;
     }
 
     .eyebrow {
@@ -87,14 +91,14 @@
       color: #ffffff;
     }
 
-    h1 span {
+    h1 span,
+    .highlight {
       color: #2ecc71;
     }
 
     h2 {
       font-size: clamp(2rem, 4vw, 3rem);
       margin-top: 0;
-      color: #ffffff;
       line-height: 1.15;
     }
 
@@ -113,6 +117,37 @@
       font-size: 1.18rem;
     }
 
+    .section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: auto;
+    }
+
+    .panel {
+      padding: 42px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.075);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 22px;
+      padding: 26px;
+    }
+
+    .card p {
+      margin-bottom: 0;
+    }
+
     .cta {
       margin-top: 34px;
     }
@@ -125,6 +160,12 @@
       text-decoration: none;
       font-weight: 800;
       border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
     }
 
     .btn-primary {
@@ -138,47 +179,8 @@
       background: rgba(255, 255, 255, 0.06);
     }
 
-    .section {
-      padding: 80px 20px;
-    }
-
-    .container {
-      max-width: 1180px;
-      margin: auto;
-    }
-
-    .panel {
-      background: rgba(255, 255, 255, 0.055);
-      border: 1px solid rgba(255, 255, 255, 0.13);
-      border-radius: 26px;
-      padding: 42px;
-      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.25);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-      margin-top: 34px;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 22px;
-      padding: 26px;
-    }
-
-    .card p {
-      margin-bottom: 0;
-    }
-
     .process {
       counter-reset: step;
-    }
-
-    .process .card {
-      position: relative;
     }
 
     .process .card::before {
@@ -196,19 +198,13 @@
       margin-bottom: 12px;
     }
 
-    .highlight {
-      color: #2ecc71;
-      font-weight: 800;
-    }
-
-    .red {
-      color: #e63946;
-      font-weight: 800;
+    .contact-links {
+      margin-top: 30px;
     }
 
     form {
       max-width: 760px;
-      margin: 30px auto 0;
+      margin: 38px auto 0;
       display: flex;
       flex-direction: column;
       gap: 15px;
@@ -224,6 +220,10 @@
       background: rgba(255, 255, 255, 0.08);
       color: #ffffff;
       font-size: 1rem;
+    }
+
+    select option {
+      color: #031109;
     }
 
     textarea {
@@ -295,7 +295,7 @@
     </p>
 
     <p>
-      The goal is simple: save time, organize your work, improve your customer experience, create better content, and build digital systems that help you operate with more confidence.
+      Save time, organize your work, improve customer communication, create better content, and build digital systems that help you operate with confidence.
     </p>
 
     <div class="cta">
@@ -314,62 +314,45 @@
     <p>
       Instead of selling hype, CringleAI focuses on practical implementation. That means helping you choose the right tools, set them up correctly, connect them to your business, and understand how to use them in your daily routine.
     </p>
-    <p>
-      Whether you are a business owner who needs better lead follow-up, a creator who wants faster content production, a coach who needs a client intake system, or an individual who wants to use AI for organization and productivity, CringleAI helps turn ideas into working systems.
-    </p>
   </div>
 </section>
 
 <section class="section" id="services">
-  <div class="container">
-    <div class="panel">
-      <h2>Professional AI & Digital Services</h2>
-      <p>
-        These services are designed for people who want to use technology to become more organized, more efficient, and more professional online.
-      </p>
+  <div class="container panel">
+    <h2>Professional AI & Digital Services</h2>
+    <p>
+      These services are designed for people who want to use technology to become more organized, efficient, and professional online.
+    </p>
 
-      <div class="grid">
-        <div class="card">
-          <h3>AI Workflow Consulting</h3>
-          <p>
-            I help identify where AI can save you time, reduce repetitive work, improve communication, and support your business operations.
-          </p>
-        </div>
+    <div class="grid">
+      <div class="card">
+        <h3>AI Workflow Consulting</h3>
+        <p>I help identify where AI can save time, reduce repetitive work, and support daily business operations.</p>
+      </div>
 
-        <div class="card">
-          <h3>Business Automation</h3>
-          <p>
-            Build systems for intake forms, customer follow-up, appointment requests, lead organization, email responses, task tracking, and content workflows.
-          </p>
-        </div>
+      <div class="card">
+        <h3>Business Automation</h3>
+        <p>Build systems for intake forms, customer follow-up, appointment requests, lead tracking, and content workflows.</p>
+      </div>
 
-        <div class="card">
-          <h3>Websites & Landing Pages</h3>
-          <p>
-            Create clean, professional pages for brands, services, coaching programs, digital products, AI tools, and client funnels.
-          </p>
-        </div>
+      <div class="card">
+        <h3>Websites & Landing Pages</h3>
+        <p>Create clean professional pages for brands, services, coaching programs, digital products, and client funnels.</p>
+      </div>
 
-        <div class="card">
-          <h3>AI Content Systems</h3>
-          <p>
-            Use AI to plan content, write captions, create scripts, organize ideas, repurpose posts, and build consistent branding across platforms.
-          </p>
-        </div>
+      <div class="card">
+        <h3>AI Content Systems</h3>
+        <p>Use AI to plan content, write captions, create scripts, organize ideas, and build consistent branding.</p>
+      </div>
 
-        <div class="card">
-          <h3>Cloud & Tool Setup</h3>
-          <p>
-            Get help with digital infrastructure such as domains, hosting, Cloudflare, GitHub, forms, email tools, automation platforms, and connected apps.
-          </p>
-        </div>
+      <div class="card">
+        <h3>Cloud & Tool Setup</h3>
+        <p>Get help with domains, hosting, Cloudflare, GitHub, forms, email tools, automation platforms, and connected apps.</p>
+      </div>
 
-        <div class="card">
-          <h3>Cybersecurity Awareness</h3>
-          <p>
-            Learn safer digital habits, account protection basics, password practices, phishing awareness, and simple security steps for small businesses.
-          </p>
-        </div>
+      <div class="card">
+        <h3>Cybersecurity Awareness</h3>
+        <p>Learn safer digital habits, account protection basics, password practices, phishing awareness, and simple security steps.</p>
       </div>
     </div>
   </div>
@@ -385,30 +368,22 @@
     <div class="grid">
       <div class="card">
         <h3>Personal Productivity</h3>
-        <p>
-          Use AI to plan your day, organize notes, summarize information, write reminders, create checklists, and break large goals into simple action steps.
-        </p>
+        <p>Plan your day, organize notes, summarize information, write reminders, and break goals into action steps.</p>
       </div>
 
       <div class="card">
         <h3>Career & Learning</h3>
-        <p>
-          AI can help explain difficult topics, prepare resumes, practice interviews, study technology, learn business skills, and build confidence with new tools.
-        </p>
+        <p>Prepare resumes, practice interviews, study technology, learn business skills, and build confidence with new tools.</p>
       </div>
 
       <div class="card">
         <h3>Content Creation</h3>
-        <p>
-          Create stronger captions, video ideas, hooks, scripts, product descriptions, emails, social media posts, and brand messages with less stress.
-        </p>
+        <p>Create stronger captions, video ideas, hooks, scripts, product descriptions, emails, and brand messages.</p>
       </div>
 
       <div class="card">
         <h3>Business Operations</h3>
-        <p>
-          Use AI to answer common customer questions, organize leads, draft follow-up messages, prepare proposals, and create repeatable business systems.
-        </p>
+        <p>Use AI to answer common questions, organize leads, draft follow-ups, prepare proposals, and repeat workflows.</p>
       </div>
     </div>
   </div>
@@ -424,30 +399,22 @@
     <div class="grid process">
       <div class="card">
         <h3>Discovery</h3>
-        <p>
-          We identify your goals, current tools, business problems, repetitive tasks, and areas where technology can save time or improve results.
-        </p>
+        <p>We identify your goals, current tools, business problems, repetitive tasks, and possible improvements.</p>
       </div>
 
       <div class="card">
         <h3>Strategy</h3>
-        <p>
-          I recommend practical AI tools, automation workflows, website improvements, and digital systems based on your actual needs.
-        </p>
+        <p>I recommend practical AI tools, automation workflows, website improvements, and digital systems based on your needs.</p>
       </div>
 
       <div class="card">
         <h3>Build</h3>
-        <p>
-          We create or configure the system, such as forms, landing pages, automations, content templates, customer response flows, or simple AI-powered tools.
-        </p>
+        <p>We create or configure forms, landing pages, automations, templates, customer flows, or AI-powered tools.</p>
       </div>
 
       <div class="card">
         <h3>Training</h3>
-        <p>
-          I help you understand how to use the system so you are not dependent on guessing, copying trends, or being overwhelmed by technology.
-        </p>
+        <p>I help you understand how to use the system so you are not dependent on guessing or copying trends.</p>
       </div>
     </div>
   </div>
@@ -457,10 +424,7 @@
   <div class="container panel">
     <h2>Chris Cringle Fitness</h2>
     <p>
-      Chris Cringle Fitness is connected to the same mission: discipline, growth, structure, and transformation. Through coaching and planning, clients can receive support with fitness goals, consistency, mindset, and personal improvement.
-    </p>
-    <p>
-      Fitness clients can apply through the official application form below.
+      Chris Cringle Fitness is connected to the same mission: discipline, growth, structure, and transformation. Clients can receive support with fitness goals, consistency, mindset, and personal improvement.
     </p>
 
     <div class="cta">
@@ -473,8 +437,28 @@
   <div class="container panel">
     <h2>Start Building With CringleAI</h2>
     <p>
-      Reach out if you need help using AI for your business, personal productivity, content creation, automation, website development, cloud setup, or digital strategy.
+      Reach out if you need help using AI for business, personal productivity, content creation, automation, website development, cloud setup, fitness coaching, or digital strategy.
     </p>
+
+    <div class="grid contact-links">
+      <div class="card">
+        <h3>Email</h3>
+        <p>Send a direct business inquiry, service request, or general question.</p>
+        <a class="btn btn-primary" href="mailto:chrispcringle@gmail.com">Email Chris Cringle</a>
+      </div>
+
+      <div class="card">
+        <h3>TikTok</h3>
+        <p>Follow the brand for content, AI, business, creator updates, fitness, and digital growth.</p>
+        <a class="btn btn-secondary" href="https://www.tiktok.com/@cookinwitcringle" target="_blank">Visit TikTok</a>
+      </div>
+
+      <div class="card">
+        <h3>Fitness Application</h3>
+        <p>Apply for coaching, personal training support, or fitness planning.</p>
+        <a class="btn btn-secondary" href="https://www.jotform.com/form/261066929041053" target="_blank">Open Application</a>
+      </div>
+    </div>
 
     <form action="https://formsubmit.co/chrispcringle@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="New CringleAI Website Inquiry">
@@ -503,7 +487,7 @@
 
 <footer>
   <p>
-    © 2026 CringleAI by Chris Cringle. Practical AI, automation, websites, cloud systems, cybersecurity awareness, and digital growth.
+    © 2026 CringleAI by Chris Cringle. Practical AI, automation, websites, cloud systems, cybersecurity awareness, fitness support, and digital growth.
   </p>
 </footer>
 
